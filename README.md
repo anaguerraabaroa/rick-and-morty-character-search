@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+![Rick and Morty](https://static1.squarespace.com/static/59bc0ff818b27dff8196865f/59bc14ae37c581cd2123f9cb/59e6d3471f318d351356ec16/1508299598333/rick-and-morty-season-3.jpg?format=1500w)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MÓDULO 3: EJERCICIO DE EVALUACIÓN FINAL
 
-## Available Scripts
+Este es el ejercicio de evaluación final del módulo 3 del curso de Programación Frontend de Adalab Digital.
 
-In the project directory, you can run:
+## OBJETIVO
 
-### `npm start`
+El ejercicio consiste en desarrollar una página web con un listado de personajes de Rick and Morty, pudiendo filtrar por nombre del personaje y acceder a una ficha con los detalles de cada personaje.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## REQUISITOS
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Utilizar para el desarrollo la librería React.
 
-### `npm test`
+## DESARROLLO
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Listado de personajes
 
-### `npm run build`
+- Acceder con una petición fetch al servicio de datos que devolverá un array con la información de los personajes.
+- Endpoint del servicio de datos : https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json
+- Pintar un listado de personajes, recorriendo el array con un método map, que contenga la siguiente información: imagen, nombre y especie del personaje.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Filtrado de personajes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Añadir un pequeño formulario para poder filtrar personajes por nombre.
+- Recorrer el array y filtrar personajes aplicando los métodos filter e includes.
+- A medida que se va escribiendo en el formulario van quedando en la interfaz únicamente los personajes que contienen las letras escritas en el input.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Componentes utilizados en el ejercicio
 
-### `npm run eject`
+- App: componente principal.
+- Header: cabecera.
+- Filters: buscador de personajes por nombre.
+- CharacterList: listado de personajes.
+- CharacterCard: tarjeta genérica de cada uno de los personajes del listado.
+- CharacterDetail: tarjeta con el detalle de cada personaje del listado.
+- Footer: copy.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Detalle de personajes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Utilizar React Router para pintar una tarjeta a pantalla completa con el detalle de cada personaje al hacer click sobre alguno de ellos, haciendo coincidir el id de cada personaje con el id de la ruta utilizando un método find.
+- En los detalles debe aparecer la siguiente información: imagen, nombre, especie, planeta de origen, número de episodios en los que aparece el personaje y si está vivo o muerto.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Detalles de calidad
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- El campo de texto se debe incluir dentro de un formulario para cuidar la semántica.
+- Al pulsar intro en el campo de texto se debe impedir que el navegador envíe la petición o cambie de ruta aplicando un prevent event default.
+- Si se busca por el nombre de un personaje que no existe se debe mostrar un mensaje de error.
+- El campo de texto debe filtrar tanto en mayúsculas como en minúsculas aplicando un método toLowerCase.
+- Al entrar en detalles del personaje y volver a la página principal se debe poder leer el texto que se había incluido inicialmente en el campo de texto. Para ello se recoge el valor del input y aplicando lifting se guarda en el estado del componente principal para bajarlo nuevamente al value del componente filters.
 
-## Learn More
+### BONUS: Mejoras visuales
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Mostrar la especie y el estado del personaje con un icono.
+- Usar un sistema de grid para pintar el listado de personajes.
+- Cuidar el funcionamiento del responsive en dispositivos pequeños.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### BONUS: URL compartible
 
-### Code Splitting
+- La URL del detalle del personaje debe ser compatible y poder acceder a ella visitándola directamente desde el navegador.
+- Mostrar un mensaje de error si se introduce una ruta inexistente en el navegador.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### BONUS: Ordenación
 
-### Analyzing the Bundle Size
+- Ordenar alfabéticamente el listado de personajes utilizando un método sort.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## RESULTADO
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- URL del ejercicio: http://beta.adalab.es/modulo-3-evaluacion-final-anaguerraabaroa/#/
