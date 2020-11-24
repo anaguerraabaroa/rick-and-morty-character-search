@@ -16,25 +16,25 @@ Utilizar para el desarrollo la librería React.
 
 ### Listado de personajes
 
-- Acceder con una petición fetch al servicio de datos que devolverá un array con la información de los personajes.
+- Acceder con una petición fetch al servicio de datos que devolverá un JSON con la información de los personajes.
 - Endpoint del servicio de datos : https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json
-- Pintar un listado de personajes, recorriendo el array con un método map, que contenga la siguiente información: imagen, nombre y especie del personaje.
+- Pintar un listado de personajes, recorriendo el array de datos con un método map, que contenga la siguiente información: imagen, nombre y especie del personaje.
 
 ### Filtrado de personajes
 
-- Añadir un pequeño formulario para poder filtrar personajes por nombre.
-- Recorrer el array y filtrar personajes aplicando los métodos filter e includes.
+- Añadir un campo de texto para poder filtrar personajes por nombre.
+- Recorrer el array de datos y filtrar personajes aplicando los métodos filter e includes.
 - A medida que se va escribiendo en el formulario van quedando en la interfaz únicamente los personajes que contienen las letras escritas en el input.
 
 ### Componentes utilizados en el ejercicio
 
-- App: componente principal.
-- Header: cabecera.
-- Filters: buscador de personajes por nombre.
-- CharacterList: listado de personajes.
-- CharacterCard: tarjeta genérica de cada uno de los personajes del listado.
-- CharacterDetail: tarjeta con el detalle de cada personaje del listado.
-- Footer: copy.
+- **App:** componente principal.
+- **Header:** cabecera.
+- **Filters:** buscador de personajes por nombre.
+- **CharacterList:** listado de personajes.
+- **CharacterCard:** tarjeta genérica de cada uno de los personajes del listado.
+- **CharacterDetail:** tarjeta con el detalle de cada personaje del listado.
+- **Footer:** copy.
 
 ### Detalle de personajes
 
@@ -43,11 +43,11 @@ Utilizar para el desarrollo la librería React.
 
 ### Detalles de calidad
 
-- El campo de texto se debe incluir dentro de un formulario para cuidar la semántica.
-- Al pulsar intro en el campo de texto se debe impedir que el navegador envíe la petición o cambie de ruta aplicando un prevent event default.
-- Si se busca por el nombre de un personaje que no existe se debe mostrar un mensaje de error.
-- El campo de texto debe filtrar tanto en mayúsculas como en minúsculas aplicando un método toLowerCase.
-- Al entrar en detalles del personaje y volver a la página principal se debe poder leer el texto que se había incluido inicialmente en el campo de texto. Para ello se recoge el valor del input y aplicando lifting se guarda en el estado del componente principal para bajarlo nuevamente al value del componente filters.
+- Incluir el campo de texto dentro de una etiqueta <form></form> para cuidar la semántica.
+- Impedir que el navegador envíe una petición o cambie de ruta al dar a intro sobre el campo de texto vacío aplicando un prevent event default.
+- Mostrar un mensaje de error al realizar una búsqueda por un personaje que no existe.
+- Filtrar tanto en mayúsculas como en minúsculas desde el campo de texto aplicando un método toLowerCase.
+- Al entrar en detalles del personaje y volver al listado de personajes se debe poder leer el texto que se había incluido inicialmente en el campo de texto. Para ello se recoge el valor del input y aplicando lifting se guarda en el estado del componente principal para bajarlo nuevamente al value del componente filters.
 
 ### BONUS: Mejoras visuales
 
