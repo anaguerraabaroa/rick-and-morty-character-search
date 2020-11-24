@@ -26,13 +26,17 @@ function App() {
   };
 
   // render
-  const filteredCharacters = characterList.filter((character) => {
+  const sortCharacterList = characterList.sort((a, b) =>
+    a.name > b.name ? 1 : a.name < b.name ? -1 : 0
+  );
+
+  const filteredCharacters = sortCharacterList.filter((character) => {
     return character.name.toLowerCase().includes(filterText.toLowerCase());
   });
 
   const renderCharacterDetail = (props) => {
     const characterId = parseInt(props.match.params.id);
-    const foundCharacter = characterList.find((character) => {
+    const foundCharacter = sortCharacterList.find((character) => {
       return character.id === characterId;
     });
     if (foundCharacter) {
@@ -48,7 +52,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <Header />
       <Switch>
         <Route exact path="/">

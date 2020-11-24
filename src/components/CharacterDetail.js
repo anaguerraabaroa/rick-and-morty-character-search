@@ -36,14 +36,14 @@ const CharacterDetail = (props) => {
         <h2 className="card__details--name">{props.foundCharacter.name}</h2>
         <ul className="card__details--list">
           <li className="details__list--item">
-            Origin planet: {props.foundCharacter.origin.name}
+            Planet: {props.foundCharacter.origin.name}
           </li>
           <li className="details__list--item">
             Species: {renderIconSpecies()}
           </li>
           <li className="details__list--item">Status: {renderIconStatus()}</li>
           <li className="details__list--item details__list--border">
-            Number of episodes: {props.foundCharacter.episode.length}
+            Episodes: {props.foundCharacter.episode.length}
           </li>
         </ul>
         <Link

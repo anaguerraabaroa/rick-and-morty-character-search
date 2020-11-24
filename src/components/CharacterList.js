@@ -12,8 +12,19 @@ const CharacterList = (props) => {
     );
   });
 
+  const searchError =
+    props.characterList.length === 0 ? (
+      <p className="character__results--error">
+        We <i className="character__error--icon fas fa-heart"></i> your
+        creativity but we are afraid that this character doesn't exist
+      </p>
+    ) : (
+      ""
+    );
+
   return (
     <section className="character__results">
+      {searchError}
       <ul className="character__results--list">{characterItems}</ul>
     </section>
   );

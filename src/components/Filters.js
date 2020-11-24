@@ -7,9 +7,11 @@ const Filters = (props) => {
     props.handleFilter(ev.currentTarget.value);
   };
 
+  const preventDefault = (ev) => ev.preventDefault();
+
   return (
     <section className="search" role="search">
-      <form className="form">
+      <form className="form" onSubmit={preventDefault}>
         <label className="form__label" htmlFor="formText">
           Enter your favourite character
         </label>
