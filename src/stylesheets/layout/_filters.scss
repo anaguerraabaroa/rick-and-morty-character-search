@@ -13,11 +13,17 @@
   }
   &__icon {
     position: relative;
-    top: 30px;
+    top: 40px;
     right: 100px;
     opacity: 60%;
-    font-size: 20px;
+    font-size: 25px;
     color: $colorBrand1;
+    @media all and (min-width: 768px) {
+      right: 150px;
+    }
+    @media all and (min-width: 1200px) {
+      right: 145px;
+    }
   }
   &__input {
     width: 80%;
@@ -35,7 +41,7 @@
 }
 
 input[placeholder] {
-  padding: 10px 10px 10px 30px;
+  padding: 20px;
   text-align: center;
   font-size: 16px;
 }
