@@ -1,0 +1,45 @@
+.search {
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__label {
+    font-size: 16px;
+    color: $colorBrand1;
+    text-align: center;
+  }
+  &__icon {
+    position: relative;
+    top: 30px;
+    right: 100px;
+    opacity: 60%;
+    font-size: 20px;
+    color: $colorBrand1;
+  }
+  &__input {
+    width: 80%;
+    border: 2px solid $colorBrand1;
+    background-color: transparent;
+    color: $colorBrand1;
+    cursor: pointer;
+    @media all and (min-width: 768px) {
+      width: 50%;
+    }
+    @media all and (min-width: 1200px) {
+      width: 30%;
+    }
+  }
+}
+
+input[placeholder] {
+  padding: 10px 10px 10px 30px;
+  text-align: center;
+  font-size: 16px;
+}
+
+input[placeholder]:focus {
+  outline: $colorBrand1;
+}

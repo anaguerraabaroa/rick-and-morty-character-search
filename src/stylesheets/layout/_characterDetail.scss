@@ -1,0 +1,122 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: 40px 20px;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgb(193, 247, 98), 0 0 10px rgb(199, 250, 108),
+    0 0 15px rgb(49, 78, 28), 0 0 20px rgb(105, 173, 83),
+    0 0 25px rgb(105, 173, 83), 0 0 30px rgb(124, 188, 108),
+    0 0 35px rgb(54, 88, 41), 0 0 40px;
+  @media all and (min-width: 768px) {
+    flex-direction: row;
+    width: 90%;
+    padding: 20px 20px;
+    margin-bottom: 150px;
+  }
+  @media all and (min-width: 1200px) {
+    width: 50%;
+    justify-content: space-around;
+  }
+
+  &--img {
+    width: 200px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    @media all and (min-width: 768px) {
+      width: 300px;
+    }
+  }
+  &--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media all and (min-width: 768px) {
+      margin: 10px 20px;
+    }
+  }
+  &--name {
+    width: 100%;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+    color: $colorBrand1;
+    border-top: 2px solid $colorBrand1;
+    @media all and (min-width: 768px) {
+      padding-top: 0;
+      font-size: 20px;
+      border-top: none;
+      padding-bottom: 20px;
+      border-bottom: 2px solid $colorBrand1;
+    }
+  }
+  &--link {
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid $colorBrand1;
+    text-align: center;
+    font-size: 12px;
+    color: $colorBrand1;
+    transition: background-color ease 0.5s;
+  }
+  &--icon {
+    font-size: 30px;
+  }
+}
+
+.details__list--item {
+  font-size: 14px;
+  text-align: center;
+  color: $colorBrand1;
+  margin-bottom: 20px;
+}
+
+.card__details--link:hover {
+  background-color: $colorBrand1;
+  color: $colorBrand2;
+}
+
+.details__list--border {
+  padding-bottom: 20px;
+  border-bottom: 2px solid $colorBrand1;
+}
+
+.error__route {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 40px 250px;
+  font-size: 20px;
+  color: $colorBrand1;
+  text-align: center;
+  &--icon {
+    font-size: 30px;
+    margin-bottom: 20px;
+    animation-name: rocket;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    @media all and (min-width: 768px) {
+      font-size: 50px;
+    }
+    @keyframes rocket {
+      from {
+        transform: translate(0, 0);
+      }
+      to {
+        transform: translate(0, -20px);
+      }
+    }
+  }
+}

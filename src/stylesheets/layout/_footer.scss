@@ -1,0 +1,30 @@
+.footer {
+  height: 80px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media all and (min-width: 768px) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 60px;
+  }
+  &__small {
+    font-size: 12px;
+    color: $colorBrand1;
+    margin-bottom: 5px;
+  }
+  &__menu--logos {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.github,
+.linkedin,
+.twitter {
+  color: $colorBrand1;
+  margin: 5px;
+  font-size: 20px;
+}

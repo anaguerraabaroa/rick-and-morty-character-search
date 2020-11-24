@@ -1,0 +1,33 @@
+.character__results--list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media all and (min-width: 768px) {
+    margin: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.character__results--error {
+  font-size: 20px;
+  color: $colorBrand1;
+  text-align: center;
+  margin: 20px 40px 250px;
+  animation-name: heart;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  @keyframes heart {
+    from {
+      transform: escale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+}
+
+.character__error--icon {
+  font-size: 30px;
+}
