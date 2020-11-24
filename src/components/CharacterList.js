@@ -3,6 +3,7 @@ import CharacterCard from "./CharacterCard";
 import PropTypes from "prop-types";
 
 const CharacterList = (props) => {
+  // render
   const characterItems = props.characterList.map((character) => {
     return (
       <li key={character.id} className="character__list--item">
@@ -18,6 +19,7 @@ const CharacterList = (props) => {
   );
 };
 
+// verify types
 CharacterList.propTypes = {
   characterList: PropTypes.arrayOf(PropTypes.object),
 };
