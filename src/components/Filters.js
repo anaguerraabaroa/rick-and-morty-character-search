@@ -12,13 +12,14 @@ const Filters = (props) => {
   return (
     <section className="search" role="search">
       <form className="form" onSubmit={preventDefault}>
+        <i className="form__icon fab fa-reddit-alien"></i>
         <label className="form__label" htmlFor="formText">
           Enter your favourite character
         </label>
-        <i className="form__icon fas fa-search"></i>
         <input
           className="form__input"
           type="text"
+          name="text"
           value={props.filterText}
           placeholder="ej: Rick"
           id="formText"

@@ -6,24 +6,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  &__icon {
+    font-size: 40px;
+    color: $colorBrand1;
+    margin-bottom: 20px;
+  }
   &__label {
-    font-size: 16px;
+    font-size: 20px;
     color: $colorBrand1;
     text-align: center;
-  }
-  &__icon {
-    position: relative;
-    top: 40px;
-    right: 100px;
-    opacity: 60%;
-    font-size: 25px;
-    color: $colorBrand1;
-    @media all and (min-width: 768px) {
-      right: 150px;
-    }
-    @media all and (min-width: 1200px) {
-      right: 145px;
-    }
+    margin-bottom: 20px;
   }
   &__input {
     width: 80%;
