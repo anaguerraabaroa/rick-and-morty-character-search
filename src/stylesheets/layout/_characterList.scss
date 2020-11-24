@@ -1,12 +1,19 @@
 .character__results--list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin: 50px 0 50px 0;
+  grid-row-gap: 50px;
   justify-content: center;
-  align-items: center;
   @media all and (min-width: 768px) {
-    margin: 20px;
-    flex-direction: row;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(10, 1fr);
+    grid-row-gap: 50px;
+  }
+  @media all and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    margin: 50px 200px 50px 200px;
   }
 }
 
