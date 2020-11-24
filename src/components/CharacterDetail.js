@@ -1,5 +1,6 @@
 import React from "react-dom";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const CharacterDetail = (props) => {
   //render
@@ -55,6 +56,11 @@ const CharacterDetail = (props) => {
       </article>
     </section>
   );
+};
+
+// verify types
+CharacterDetail.propTypes = {
+  foundCharacter: PropTypes.object.isRequired,
 };
 
 export default CharacterDetail;

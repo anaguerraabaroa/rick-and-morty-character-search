@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import api from "../services/api";
+import Header from "./Header";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
+import Footer from "./Footer";
 import "../stylesheets/App.scss";
 
 function App() {
@@ -47,6 +49,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Switch>
         <Route exact path="/">
           <main className="main" role="main">
@@ -56,6 +59,7 @@ function App() {
         </Route>
         <Route path="/character-detail/:id" render={renderCharacterDetail} />
       </Switch>
+      <Footer />
     </div>
   );
 }
