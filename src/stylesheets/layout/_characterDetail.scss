@@ -21,7 +21,7 @@
     flex-direction: row;
     width: 90%;
     padding: 20px 20px;
-    margin-bottom: 150px;
+    margin-bottom: 40px 40px, 150px;
   }
   @media all and (min-width: 1200px) {
     width: 50%;
@@ -54,16 +54,14 @@
     color: $colorBrand1;
     border-top: 2px solid $colorBrand1;
     @media all and (min-width: 768px) {
-      padding-top: 0;
       font-size: 20px;
       border-top: none;
-      padding-bottom: 20px;
-      border-bottom: 2px solid $colorBrand1;
     }
   }
   &--link {
     width: 150px;
     padding: 10px;
+    margin-top: 20px;
     border-radius: 20px;
     border: 2px solid $colorBrand1;
     text-align: center;
@@ -88,8 +86,10 @@
   color: $colorBrand2;
 }
 
-.details__list--border {
-  padding-bottom: 20px;
+.card__details--list {
+  width: 100%;
+  padding: 20px 0 0 0;
+  border-top: 2px solid $colorBrand1;
   border-bottom: 2px solid $colorBrand1;
 }
 

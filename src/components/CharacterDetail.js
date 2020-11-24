@@ -33,26 +33,30 @@ const CharacterDetail = (props) => {
           alt={props.foundCharacter.name}
           className="card__details--img"
         />
-        <h2 className="card__details--name">{props.foundCharacter.name}</h2>
-        <ul className="card__details--list">
-          <li className="details__list--item">
-            Planet: {props.foundCharacter.origin.name}
-          </li>
-          <li className="details__list--item">
-            Species: {renderIconSpecies()}
-          </li>
-          <li className="details__list--item">Status: {renderIconStatus()}</li>
-          <li className="details__list--item details__list--border">
-            Episodes: {props.foundCharacter.episode.length}
-          </li>
-        </ul>
-        <Link
-          to="/"
-          className="card__details--link"
-          title="Back to character list"
-        >
-          Return
-        </Link>
+        <div className="card__details--wrapper">
+          <h2 className="card__details--name">{props.foundCharacter.name}</h2>
+          <ul className="card__details--list">
+            <li className="details__list--item">
+              Planet: {props.foundCharacter.origin.name}
+            </li>
+            <li className="details__list--item">
+              Species: {renderIconSpecies()}
+            </li>
+            <li className="details__list--item">
+              Status: {renderIconStatus()}
+            </li>
+            <li className="details__list--item">
+              Episodes: {props.foundCharacter.episode.length}
+            </li>
+          </ul>
+          <Link
+            to="/"
+            className="card__details--link"
+            title="Back to character list"
+          >
+            Return
+          </Link>
+        </div>
       </article>
     </section>
   );

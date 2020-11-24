@@ -15,19 +15,19 @@
   color: $colorBrand1;
   text-align: center;
   margin: 20px 40px 250px;
+}
+
+.character__error--icon {
+  font-size: 30px;
   animation-name: heart;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   @keyframes heart {
     from {
-      transform: escale(0);
+      transform: escale(1);
     }
     to {
-      transform: scale(1);
+      transform: scale(2);
     }
   }
-}
-
-.character__error--icon {
-  font-size: 30px;
 }
