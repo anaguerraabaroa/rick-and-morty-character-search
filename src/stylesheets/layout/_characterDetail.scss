@@ -54,6 +54,7 @@
     text-align: center;
     color: $colorBrand1;
     border-top: 2px solid $colorBrand1;
+    text-transform: uppercase;
     @media all and (min-width: 768px) {
       font-size: 20px;
       border-top: none;
@@ -92,6 +93,10 @@
   padding: 20px 0 0 0;
   border-top: 2px solid $colorBrand1;
   border-bottom: 2px solid $colorBrand1;
+}
+
+.details__title {
+  text-transform: uppercase;
 }
 
 .error__route {

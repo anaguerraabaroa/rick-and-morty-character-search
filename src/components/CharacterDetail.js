@@ -37,16 +37,20 @@ const CharacterDetail = (props) => {
           <h2 className="card__details--name">{props.foundCharacter.name}</h2>
           <ul className="card__details--list">
             <li className="details__list--item">
-              Planet: {props.foundCharacter.origin.name}
+              <span className="details__title">Planet:</span>{" "}
+              {props.foundCharacter.origin.name}
             </li>
             <li className="details__list--item">
-              Species: {renderIconSpecies()}
+              <span className="details__title">Species:</span>{" "}
+              {renderIconSpecies()}
             </li>
             <li className="details__list--item">
-              Status: {renderIconStatus()}
+              <span className="details__title">Status:</span>{" "}
+              {renderIconStatus()}
             </li>
             <li className="details__list--item">
-              Episodes: {props.foundCharacter.episode.length}
+              <span className="details__title">Episodes:</span>{" "}
+              {props.foundCharacter.episode.length}
             </li>
           </ul>
           <Link
