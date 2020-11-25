@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  &__icon {
+  &__icon--alien {
     font-size: 40px;
     color: $colorBrand1;
     margin-bottom: 20px;
@@ -22,6 +22,7 @@
     border: 2px solid $colorBrand1;
     background-color: transparent;
     color: $colorBrand1;
+    margin-bottom: 20px;
     cursor: pointer;
     @media all and (min-width: 768px) {
       width: 50%;
@@ -30,6 +31,24 @@
       width: 30%;
     }
   }
+  &__reset {
+    padding: 10px;
+    border: 2px solid $colorBrand1;
+    border-radius: 20px;
+    background-color: transparent;
+    color: $colorBrand1;
+    outline: none;
+    &--icon {
+      font-size: 20px;
+      margin-right: 10px;
+      transition: background-color ease 0.5s;
+    }
+  }
+}
+
+.form__reset:hover {
+  background-color: $colorBrand1;
+  color: $colorBrand2;
 }
 
 input[placeholder] {

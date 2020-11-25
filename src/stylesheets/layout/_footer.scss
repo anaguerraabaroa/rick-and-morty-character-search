@@ -25,6 +25,11 @@
 .linkedin,
 .twitter {
   color: $colorBrand1;
-  margin: 5px;
   font-size: 20px;
+}
+
+.github::after,
+.linkedin::after {
+  content: "·";
+  padding: 5px;
 }

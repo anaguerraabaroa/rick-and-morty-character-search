@@ -12,7 +12,7 @@ const Filters = (props) => {
   return (
     <section className="search" role="search">
       <form className="form" onSubmit={preventDefault}>
-        <i className="form__icon fab fa-reddit-alien"></i>
+        <i className="form__icon--alien fab fa-reddit-alien"></i>
         <label className="form__label" htmlFor="formText">
           Enter your favourite character
         </label>
@@ -25,6 +25,9 @@ const Filters = (props) => {
           id="formText"
           onChange={handleFilter}
         />
+        <button className="form__reset" onClick={props.handleClick}>
+          <i className="form__reset--icon far fa-trash-alt"></i>Reset
+        </button>
       </form>
     </section>
   );

@@ -16,8 +16,8 @@ const Header = () => {
           />
           <img
             src={header}
-            alt="Rick and Morty image"
-            title="Rick and Morty image"
+            alt="Rick and Morty"
+            title="Rick and Morty"
             className="header__wrapper--image"
           />
         </div>

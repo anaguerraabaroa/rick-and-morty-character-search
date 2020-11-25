@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import api from "../services/api";
 import Header from "./Header";
 import Filters from "./Filters";
@@ -25,6 +25,10 @@ function App() {
     setFilterText(filterText);
   };
 
+  const handleClick = () => {
+    setFilterText("");
+  };
+
   // render
   const sortCharacterList = characterList.sort((a, b) =>
     a.name > b.name ? 1 : a.name < b.name ? -1 : 0
@@ -43,10 +47,19 @@ function App() {
       return <CharacterDetail foundCharacter={foundCharacter} />;
     } else {
       return (
-        <p className="error__route">
-          <i className="error__route--icon fas fa-rocket"></i> We are sorry but
-          you are trying to land on a nonexistent planet
-        </p>
+        <div className="error__route">
+          <i className="error__route--icon fas fa-rocket"></i>
+          <p className="error__route--text">
+            We are sorry but you are trying to land on a nonexistent planet
+          </p>
+          <Link
+            to="/"
+            className="error_route--btn"
+            title="Back to character list"
+          >
+            Return
+          </Link>
+        </div>
       );
     }
   };
@@ -57,7 +70,11 @@ function App() {
       <Switch>
         <Route exact path="/">
           <main className="main" role="main">
-            <Filters handleFilter={handleFilter} filterText={filterText} />
+            <Filters
+              handleFilter={handleFilter}
+              handleClick={handleClick}
+              filterText={filterText}
+            />
             <CharacterList characterList={filteredCharacters} />
           </main>
         </Route>
