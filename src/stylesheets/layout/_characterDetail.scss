@@ -84,6 +84,8 @@
 .card__details--link:hover {
   background-color: $colorBrand1;
   color: $colorBrand2;
+  box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
+    0 0 80px $colorBrand1;
 }
 
 .card__details--list {
@@ -149,4 +151,6 @@
 .error_route--btn:hover {
   background-color: $colorBrand1;
   color: $colorBrand2;
+  box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
+    0 0 80px $colorBrand1;
 }

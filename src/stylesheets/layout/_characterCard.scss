@@ -44,10 +44,14 @@
     border-radius: 20px;
     border: 2px solid $colorBrand1;
     transition: background-color ease 0.5s;
+    overflow: hidden;
+    transition: 0.2s;
   }
 }
 
 .character__card--link:hover {
   background-color: $colorBrand1;
   color: $colorBrand2;
+  box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
+    0 0 80px $colorBrand1;
 }

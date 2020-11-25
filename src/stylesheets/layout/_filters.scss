@@ -49,14 +49,18 @@
 .form__reset:hover {
   background-color: $colorBrand1;
   color: $colorBrand2;
+  box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
+    0 0 80px $colorBrand1;
 }
 
 input[placeholder] {
   padding: 20px;
   text-align: center;
   font-size: 16px;
+  outline: $colorBrand1;
 }
 
-input[placeholder]:focus {
-  outline: $colorBrand1;
+input[placeholder]:hover {
+  box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
+    0 0 80px $colorBrand1;
 }
