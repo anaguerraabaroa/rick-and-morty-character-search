@@ -64,3 +64,40 @@ input[placeholder]:hover {
   box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
     0 0 80px $colorBrand1;
 }
+
+.select__label {
+  font-size: 16px;
+  color: $colorBrand1;
+  margin-right: 10px;
+}
+
+.select__input {
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-right: 40px;
+  background-color: $colorBrand3;
+  color: $colorBrand1;
+  border: 2px solid $colorBrand1;
+  outline: none;
+}
+
+.radio__label {
+  font-size: 16px;
+  color: $colorBrand1;
+  margin-right: 10px;
+}
+
+.radio__input {
+  margin: 10px;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  transition: 0.2s;
+}
+
+.radio__input:checked {
+  appearance: none;
+  border: 6px solid $colorBrand1;
+  outline: none;
+}

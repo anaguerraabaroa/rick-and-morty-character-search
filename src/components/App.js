@@ -13,6 +13,7 @@ function App() {
   const [characterList, setCharacterList] = useState([]);
   const [filterText, setFilterText] = useState("");
   const [filterSpecies, setFilterSpecies] = useState("all");
+  const [filterStatus, setFilterStatus] = useState("all");
 
   //api
   useEffect(() => {
@@ -27,12 +28,15 @@ function App() {
       setFilterText(data.value);
     } else if (data.name === "species") {
       setFilterSpecies(data.value);
+    } else if (data.name === "status") {
+      setFilterStatus(data.value);
     }
   };
 
   const handleClick = () => {
     setFilterText("");
     setFilterSpecies("all");
+    setFilterStatus("all");
   };
 
   // render
@@ -45,6 +49,13 @@ function App() {
         return characterList;
       } else {
         return character.species.toLowerCase() === filterSpecies;
+      }
+    })
+    .filter((character) => {
+      if (filterStatus === "all") {
+        return characterList;
+      } else {
+        return character.status.toLowerCase() === filterStatus;
       }
     });
 
