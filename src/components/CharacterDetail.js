@@ -49,7 +49,7 @@ const CharacterDetail = (props) => {
               {renderIconStatus()}
             </li>
             <li className="details__list--item">
-              <span className="details__title">Episodes:</span>{" "}
+              <span className="details__title">Episodes:</span>
               {props.foundCharacter.episode.length}
             </li>
           </ul>

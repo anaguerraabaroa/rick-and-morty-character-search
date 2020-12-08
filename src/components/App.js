@@ -12,6 +12,7 @@ function App() {
   // state
   const [characterList, setCharacterList] = useState([]);
   const [filterText, setFilterText] = useState("");
+  const [filterGender, setFilterGender] = useState([]);
 
   //api
   useEffect(() => {
