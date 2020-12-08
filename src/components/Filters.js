@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 const Filters = (props) => {
   // event
   const handleFilter = (ev) => {
-    props.handleFilter(ev.currentTarget.value);
+    const data = {
+      name: ev.currentTarget.name,
+      value: ev.currentTarget.value,
+    };
+    props.handleFilter(data);
   };
 
   const preventDefault = (ev) => ev.preventDefault();
@@ -25,6 +29,21 @@ const Filters = (props) => {
           id="formText"
           onChange={handleFilter}
         />
+        <label htmlFor="species" className="select__label">
+          Species:
+        </label>
+        <select
+          className="select__input"
+          id="species"
+          name="species"
+          value={props.filterSpecies}
+          onChange={handleFilter}
+        >
+          <option value="all">All</option>
+          <option value="human">Human</option>
+          <option value="alien">Alien</option>
+        </select>
+
         <button className="form__reset" onClick={props.handleClick}>
           <i className="form__reset--icon far fa-trash-alt"></i>Reset
         </button>

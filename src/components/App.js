@@ -12,7 +12,7 @@ function App() {
   // state
   const [characterList, setCharacterList] = useState([]);
   const [filterText, setFilterText] = useState("");
-  const [filterGender, setFilterGender] = useState([]);
+  const [filterSpecies, setFilterSpecies] = useState("all");
 
   //api
   useEffect(() => {
@@ -22,26 +22,35 @@ function App() {
   }, []);
 
   // event
-  const handleFilter = (filterText) => {
-    setFilterText(filterText);
+  const handleFilter = (data) => {
+    if (data.name === "text") {
+      setFilterText(data.value);
+    } else if (data.name === "species") {
+      setFilterSpecies(data.value);
+    }
   };
 
   const handleClick = () => {
     setFilterText("");
+    setFilterSpecies("all");
   };
 
   // render
-  const sortCharacterList = characterList.sort((a, b) =>
-    a.name > b.name ? 1 : a.name < b.name ? -1 : 0
-  );
-
-  const filteredCharacters = sortCharacterList.filter((character) => {
-    return character.name.toLowerCase().includes(filterText.toLowerCase());
-  });
+  const filteredCharacters = characterList
+    .filter((character) => {
+      return character.name.toLowerCase().includes(filterText.toLowerCase());
+    })
+    .filter((character) => {
+      if (filterSpecies === "all") {
+        return characterList;
+      } else {
+        return character.species.toLowerCase() === filterSpecies;
+      }
+    });
 
   const renderCharacterDetail = (props) => {
     const characterId = parseInt(props.match.params.id);
-    const foundCharacter = sortCharacterList.find((character) => {
+    const foundCharacter = characterList.find((character) => {
       return character.id === characterId;
     });
     if (foundCharacter) {
@@ -75,6 +84,7 @@ function App() {
               handleFilter={handleFilter}
               handleClick={handleClick}
               filterText={filterText}
+              filterSpecies={filterSpecies}
             />
             <CharacterList characterList={filteredCharacters} />
           </main>
