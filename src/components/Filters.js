@@ -7,7 +7,6 @@ const Filters = (props) => {
     const data = {
       name: ev.currentTarget.name,
       value: ev.currentTarget.value,
-      checked: ev.currentTarget.checked,
     };
     props.handleFilter(data);
   };
