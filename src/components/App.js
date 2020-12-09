@@ -14,6 +14,7 @@ function App() {
   const [filterText, setFilterText] = useState("");
   const [filterSpecies, setFilterSpecies] = useState("all");
   const [filterStatus, setFilterStatus] = useState("all");
+  const [filterGender, setFilterGender] = useState([]);
 
   //api
   useEffect(() => {
@@ -22,7 +23,7 @@ function App() {
     });
   }, []);
 
-  // event
+  // event filters
   const handleFilter = (data) => {
     if (data.name === "text") {
       setFilterText(data.value);
@@ -30,13 +31,31 @@ function App() {
       setFilterSpecies(data.value);
     } else if (data.name === "status") {
       setFilterStatus(data.value);
+    } else if (data.name === "gender") {
+      if (data.checked === true) {
+        const newFilterGender = [...filterGender];
+        newFilterGender.push(data.value);
+        setFilterGender(newFilterGender);
+      } else {
+        const newFilterGender = filterGender.filter((gender) => {
+          return gender !== data.value;
+        });
+        // another way to control gender array
+        // const newFilterGender = [...filterGender];
+        // const genderIndex = newFilterGender.indexOf(data.value);
+        // newFilterGender.splice(genderIndex, 1);
+        // setFilterGender(newFilterGender);
+        setFilterGender(newFilterGender);
+      }
     }
   };
 
+  // event reset
   const handleClick = () => {
     setFilterText("");
     setFilterSpecies("all");
     setFilterStatus("all");
+    setFilterGender([]);
   };
 
   // render
@@ -57,7 +76,24 @@ function App() {
       } else {
         return character.status.toLowerCase() === filterStatus;
       }
+    })
+    .filter((character) => {
+      if (filterGender.length === 0) {
+        return characterList;
+      } else {
+        return filterGender.includes(character.gender);
+      }
     });
+
+  // get gender array
+  const characterGender = characterList.map((character) => {
+    return character.gender;
+  });
+
+  // filter duplicate genders in array
+  const filteredCharacterGender = characterGender.filter((character, index) => {
+    return characterGender.indexOf(character) === index;
+  });
 
   const renderCharacterDetail = (props) => {
     const characterId = parseInt(props.match.params.id);
@@ -96,6 +132,9 @@ function App() {
               handleClick={handleClick}
               filterText={filterText}
               filterSpecies={filterSpecies}
+              filterStatus={filterStatus}
+              filteredCharacterGender={filteredCharacterGender}
+              filterGender={filterGender}
             />
             <CharacterList characterList={filteredCharacters} />
           </main>

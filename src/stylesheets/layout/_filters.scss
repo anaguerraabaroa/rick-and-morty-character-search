@@ -65,8 +65,25 @@ input[placeholder]:hover {
     0 0 80px $colorBrand1;
 }
 
+.filters_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media all and (min-width: 1200px) {
+    flex-direction: row;
+  }
+}
+
+.filters__species {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .select__label {
-  font-size: 16px;
+  font-size: 14px;
   color: $colorBrand1;
   margin-right: 10px;
 }
@@ -75,21 +92,42 @@ input[placeholder]:hover {
   font-size: 14px;
   padding: 10px;
   margin-bottom: 20px;
-  margin-right: 40px;
   background-color: $colorBrand3;
   color: $colorBrand1;
   border: 2px solid $colorBrand1;
   outline: none;
+  @media all and (min-width: 1200px) {
+    margin-right: 20px;
+  }
+}
+
+.filters__status {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  @media all and (min-width: 768px) {
+    align-items: center;
+  }
+}
+
+.filters__radio {
+  display: flex;
+  flex-direction: column;
+  @media all and (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .radio__label {
-  font-size: 16px;
+  font-size: 14px;
   color: $colorBrand1;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .radio__input {
-  margin: 10px;
+  margin: 5px;
   border-radius: 50%;
   width: 16px;
   height: 16px;
@@ -100,4 +138,14 @@ input[placeholder]:hover {
   appearance: none;
   border: 6px solid $colorBrand1;
   outline: none;
+}
+
+.checkbox__label {
+  font-size: 14px;
+  color: $colorBrand1;
+}
+
+.checkbox__input {
+  font-size: 14px;
+  color: $colorBrand1;
 }

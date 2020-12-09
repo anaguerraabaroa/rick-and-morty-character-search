@@ -37,15 +37,15 @@ const CharacterDetail = (props) => {
           <h2 className="card__details--name">{props.foundCharacter.name}</h2>
           <ul className="card__details--list">
             <li className="details__list--item">
-              <span className="details__title">Planet:</span>{" "}
+              <span className="details__title">Planet:</span>
               {props.foundCharacter.origin.name}
             </li>
             <li className="details__list--item">
-              <span className="details__title">Species:</span>{" "}
+              <span className="details__title">Species:</span>
               {renderIconSpecies()}
             </li>
             <li className="details__list--item">
-              <span className="details__title">Status:</span>{" "}
+              <span className="details__title">Status:</span>
               {renderIconStatus()}
             </li>
             <li className="details__list--item">
