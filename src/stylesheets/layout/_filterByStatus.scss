@@ -1,0 +1,40 @@
+.form {
+  &__filter--status {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+}
+
+.status__label {
+  font-size: 14px;
+  color: $colorBrand1;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+.status__radio--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.status__legend {
+  font-size: 14px;
+  color: $colorBrand1;
+  margin-right: 5px;
+}
+
+.status__input--radio {
+  margin: 5px 10px 5px 10px;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  transition: 0.2s;
+  &:checked {
+    appearance: none;
+    border: 6px solid $colorBrand1;
+    outline: none;
+  }
+}

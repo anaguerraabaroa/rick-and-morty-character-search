@@ -1,0 +1,39 @@
+.form {
+  &__filter--gender {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+}
+
+.gender__label {
+  font-size: 14px;
+  color: $colorBrand1;
+  text-transform: uppercase;
+}
+
+.gender__checkbox--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.gender__legend {
+  font-size: 14px;
+  color: $colorBrand1;
+}
+
+.gender__input--checkbox {
+  margin: 5px 10px 5px 10px;
+  width: 16px;
+  height: 16px;
+  &:checked {
+    appearance: none;
+    border: 8px solid $colorBrand1;
+    box-shadow: 0 0 0 3px #ffffff;
+    outline: none;
+  }
+}

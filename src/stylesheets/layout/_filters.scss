@@ -6,29 +6,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  &__icon {
-    font-size: 40px;
-    color: $colorBrand1;
-    margin-bottom: 20px;
-  }
   &__label {
     font-size: 20px;
     color: $colorBrand1;
     text-align: center;
     margin-bottom: 20px;
   }
-  &__textInput {
-    width: 80%;
-    border: 2px solid $colorBrand1;
-    background-color: transparent;
-    color: $colorBrand1;
-    margin-bottom: 20px;
-    cursor: pointer;
-    @media all and (min-width: 768px) {
-      width: 50%;
-    }
+  &__filters--wrapper {
     @media all and (min-width: 1200px) {
-      width: 30%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
     }
   }
   &__reset {
@@ -44,147 +33,19 @@
       transition: background-color ease 0.5s;
     }
   }
-}
-
-.form__reset:hover {
-  background-color: $colorBrand1;
-  color: $colorBrand2;
-  box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
-    0 0 80px $colorBrand1;
-}
-
-input[placeholder] {
-  padding: 20px;
-  text-align: center;
-  font-size: 16px;
-  outline: $colorBrand1;
-}
-
-input[placeholder]:hover {
-  box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
-    0 0 80px $colorBrand1;
-}
-
-.filters__wrapper {
-  @media all and (min-width: 1200px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+  &__reset:hover {
+    background-color: $colorBrand1;
+    color: $colorBrand2;
+    box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
+      0 0 80px $colorBrand1;
   }
 }
 
-.filters__wrapper2 {
+.filters__wrapper--inner {
   @media all and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
   }
-}
-
-.filters__species {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.select__label {
-  font-size: 14px;
-  color: $colorBrand1;
-  margin-right: 10px;
-  text-transform: uppercase;
-}
-
-.select__input {
-  font-size: 14px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: $colorBrand3;
-  color: $colorBrand1;
-  border: 2px solid $colorBrand1;
-  outline: none;
-  @media all and (min-width: 1200px) {
-    margin-right: 20px;
-  }
-}
-
-.filters__status {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.filters__radio {
-  display: flex;
-  flex-direction: column;
-}
-
-.radio__label {
-  font-size: 14px;
-  color: $colorBrand1;
-  margin-right: 5px;
-  text-transform: uppercase;
-}
-
-.radio__legend {
-  font-size: 14px;
-  color: $colorBrand1;
-  margin-right: 5px;
-}
-
-.radio__input {
-  margin: 5px 10px 5px 10px;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  transition: 0.2s;
-}
-
-.radio__input:checked {
-  appearance: none;
-  border: 6px solid $colorBrand1;
-  outline: none;
-}
-
-.filters__gender {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.filters__checkbox {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.checkbox__label {
-  font-size: 14px;
-  color: $colorBrand1;
-  text-transform: uppercase;
-}
-
-.checkbox__legend {
-  font-size: 14px;
-  color: $colorBrand1;
-}
-
-.checkbox__input {
-  margin: 5px 10px 5px 10px;
-  width: 16px;
-  height: 16px;
-}
-
-.checkbox__input:checked {
-  appearance: none;
-  border: 8px solid $colorBrand1;
-  box-shadow: 0 0 0 3px #ffffff;
-  outline: none;
 }

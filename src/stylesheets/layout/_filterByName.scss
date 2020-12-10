@@ -1,0 +1,33 @@
+.form {
+  &__icon {
+    font-size: 40px;
+    color: $colorBrand1;
+    margin-bottom: 20px;
+  }
+  &__input--text {
+    width: 80%;
+    border: 2px solid $colorBrand1;
+    background-color: transparent;
+    color: $colorBrand1;
+    margin-bottom: 20px;
+    cursor: pointer;
+    @media all and (min-width: 768px) {
+      width: 50%;
+    }
+    @media all and (min-width: 1200px) {
+      width: 30%;
+    }
+  }
+}
+
+input[placeholder] {
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  outline: $colorBrand1;
+}
+
+input[placeholder]:hover {
+  box-shadow: 0 0 10px $colorBrand1, 0 0 40px $colorBrand1,
+    0 0 80px $colorBrand1;
+}
