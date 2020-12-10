@@ -11,22 +11,22 @@ import "../stylesheets/App.scss";
 function App() {
   // state
   const [characterList, setCharacterList] = useState([]);
-  const [filterText, setFilterText] = useState("");
+  const [filterName, setFilterName] = useState("");
   const [filterSpecies, setFilterSpecies] = useState("all");
   const [filterStatus, setFilterStatus] = useState("all");
   const [filterGender, setFilterGender] = useState([]);
 
-  //api
+  // lifecycle
   useEffect(() => {
     api.getDataFromApi().then((data) => {
       setCharacterList(data);
     });
   }, []);
 
-  // event filters
+  // event handler
   const handleFilter = (data) => {
     if (data.name === "text") {
-      setFilterText(data.value);
+      setFilterName(data.value);
     } else if (data.name === "species") {
       setFilterSpecies(data.value);
     } else if (data.name === "status") {
@@ -39,29 +39,29 @@ function App() {
       } else {
         const newFilterGender = filterGender.filter((gender) => {
           return gender !== data.value;
+          // another method to remove elements from gender array
+          // const newFilterGender = [...filterGender];
+          // const genderIndex = newFilterGender.indexOf(data.value);
+          // newFilterGender.splice(genderIndex, 1);
+          // setFilterGender(newFilterGender);
         });
-        // another way to control gender array
-        // const newFilterGender = [...filterGender];
-        // const genderIndex = newFilterGender.indexOf(data.value);
-        // newFilterGender.splice(genderIndex, 1);
-        // setFilterGender(newFilterGender);
         setFilterGender(newFilterGender);
       }
     }
   };
 
-  // event reset
+  // reset filters
   const handleClick = () => {
-    setFilterText("");
+    setFilterName("");
     setFilterSpecies("all");
     setFilterStatus("all");
     setFilterGender([]);
   };
 
-  // render
+  // render filters
   const filteredCharacters = characterList
     .filter((character) => {
-      return character.name.toLowerCase().includes(filterText.toLowerCase());
+      return character.name.toLowerCase().includes(filterName.toLowerCase());
     })
     .filter((character) => {
       if (filterSpecies === "all") {
@@ -90,11 +90,12 @@ function App() {
     return character.gender;
   });
 
-  // filter duplicate genders in array
+  // remove duplicate data from gender array
   const filteredCharacterGender = characterGender.filter((character, index) => {
     return characterGender.indexOf(character) === index;
   });
 
+  // render character details
   const renderCharacterDetail = (props) => {
     const characterId = parseInt(props.match.params.id);
     const foundCharacter = characterList.find((character) => {
@@ -130,7 +131,7 @@ function App() {
             <Filters
               handleFilter={handleFilter}
               handleClick={handleClick}
-              filterText={filterText}
+              filterName={filterName}
               filterSpecies={filterSpecies}
               filterStatus={filterStatus}
               filteredCharacterGender={filteredCharacterGender}

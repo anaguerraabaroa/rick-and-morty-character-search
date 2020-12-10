@@ -3,7 +3,7 @@ import CharacterCard from "./CharacterCard";
 import PropTypes from "prop-types";
 
 const CharacterList = (props) => {
-  // render
+  // sort character list alphabetically
   const sortCharacterList = props.characterList.sort((a, b) => {
     if (a.name > b.name) {
       return 1;
@@ -14,6 +14,7 @@ const CharacterList = (props) => {
     }
   });
 
+  // render each character card of the list
   const characterItems = sortCharacterList.map((character) => {
     return (
       <li key={character.id} className="character__list--item">
@@ -22,6 +23,7 @@ const CharacterList = (props) => {
     );
   });
 
+  // render character list or an error message if the character doesn't exist
   const searchResults =
     sortCharacterList.length !== 0 ? (
       <ul className="character__results--list">{characterItems}</ul>
@@ -35,7 +37,7 @@ const CharacterList = (props) => {
   return <section className="character__results">{searchResults}</section>;
 };
 
-// verify types
+// control data
 CharacterList.propTypes = {
   characterList: PropTypes.arrayOf(PropTypes.object),
 };

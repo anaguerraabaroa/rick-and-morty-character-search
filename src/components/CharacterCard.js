@@ -24,7 +24,7 @@ const CharacterCard = (props) => {
   );
 };
 
-// verify types
+// control data
 CharacterCard.propTypes = {
   character: PropTypes.object.isRequired,
 };

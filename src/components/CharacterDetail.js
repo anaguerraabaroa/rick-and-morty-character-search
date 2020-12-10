@@ -3,23 +3,23 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const CharacterDetail = (props) => {
-  //render
-  const renderIconStatus = () => {
-    if (props.foundCharacter.status === "Alive") {
-      return <i className="card__details--icon fas fa-heartbeat"></i>;
-    } else if (props.foundCharacter.status === "Dead") {
-      return <i className="card__details--icon fas fa-skull-crossbones"></i>;
-    } else if (props.foundCharacter.status === "unknown") {
-      return <i className="card__details--icon fas fa-question"></i>;
-    }
-  };
-
+  //render icons on character detail card
   const renderIconSpecies = () => {
     if (props.foundCharacter.species === "Human") {
       return <i className="card__details--icon fas fa-male"></i>;
     } else if (props.foundCharacter.species === "Alien") {
       return <i className="card__details--icon fab fa-reddit-alien"></i>;
     } else if (props.foundCharacter.species === "unknown") {
+      return <i className="card__details--icon fas fa-question"></i>;
+    }
+  };
+
+  const renderIconStatus = () => {
+    if (props.foundCharacter.status === "Alive") {
+      return <i className="card__details--icon fas fa-heartbeat"></i>;
+    } else if (props.foundCharacter.status === "Dead") {
+      return <i className="card__details--icon fas fa-skull-crossbones"></i>;
+    } else if (props.foundCharacter.status === "unknown") {
       return <i className="card__details--icon fas fa-question"></i>;
     }
   };
@@ -66,7 +66,7 @@ const CharacterDetail = (props) => {
   );
 };
 
-// verify types
+// control data
 CharacterDetail.propTypes = {
   foundCharacter: PropTypes.object.isRequired,
 };

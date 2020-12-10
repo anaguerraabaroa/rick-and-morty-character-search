@@ -1,0 +1,28 @@
+.form {
+  &__filter--species {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+.species__label {
+  font-size: 14px;
+  color: $colorBrand1;
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+
+.species__input--select {
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: $colorBrand3;
+  color: $colorBrand1;
+  border: 2px solid $colorBrand1;
+  outline: none;
+  @media all and (min-width: 1200px) {
+    margin-right: 20px;
+  }
+}

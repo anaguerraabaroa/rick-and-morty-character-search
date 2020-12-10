@@ -2,6 +2,10 @@
 @import "core/reset";
 @import "layout/header";
 @import "layout/filters";
+@import "layout/filterByName";
+@import "layout/filterBySpecies";
+@import "layout/filterByStatus";
+@import "layout/filterByGender";
 @import "layout/characterList";
 @import "layout/characterCard";
 @import "layout/characterDetail";
