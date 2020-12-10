@@ -4,9 +4,15 @@ import PropTypes from "prop-types";
 
 const CharacterList = (props) => {
   // render
-  const sortCharacterList = props.characterList.sort((a, b) =>
-    a.name > b.name ? 1 : a.name < b.name ? -1 : 0
-  );
+  const sortCharacterList = props.characterList.sort((a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    } else if (a.name < b.name) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
 
   const characterItems = sortCharacterList.map((character) => {
     return (

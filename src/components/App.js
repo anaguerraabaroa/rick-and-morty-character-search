@@ -134,7 +134,6 @@ function App() {
               filterSpecies={filterSpecies}
               filterStatus={filterStatus}
               filteredCharacterGender={filteredCharacterGender}
-              filterGender={filterGender}
             />
             <CharacterList characterList={filteredCharacters} />
           </main>

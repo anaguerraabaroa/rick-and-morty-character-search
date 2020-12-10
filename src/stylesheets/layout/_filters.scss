@@ -1,4 +1,4 @@
-.search {
+.search__section {
   padding: 20px;
 }
 
@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  &__icon--alien {
+  &__icon {
     font-size: 40px;
     color: $colorBrand1;
     margin-bottom: 20px;
@@ -17,7 +17,7 @@
     text-align: center;
     margin-bottom: 20px;
   }
-  &__input {
+  &__textInput {
     width: 80%;
     border: 2px solid $colorBrand1;
     background-color: transparent;
@@ -65,13 +65,21 @@ input[placeholder]:hover {
     0 0 80px $colorBrand1;
 }
 
-.filters_wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.filters__wrapper {
   @media all and (min-width: 1200px) {
+    display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+}
+
+.filters__wrapper2 {
+  @media all and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
   }
 }
 
@@ -79,13 +87,14 @@ input[placeholder]:hover {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .select__label {
   font-size: 14px;
   color: $colorBrand1;
   margin-right: 10px;
+  text-transform: uppercase;
 }
 
 .select__input {
@@ -107,27 +116,28 @@ input[placeholder]:hover {
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 20px;
-  @media all and (min-width: 768px) {
-    align-items: center;
-  }
 }
 
 .filters__radio {
   display: flex;
   flex-direction: column;
-  @media all and (min-width: 768px) {
-    flex-direction: row;
-  }
 }
 
 .radio__label {
   font-size: 14px;
   color: $colorBrand1;
   margin-right: 5px;
+  text-transform: uppercase;
+}
+
+.radio__legend {
+  font-size: 14px;
+  color: $colorBrand1;
+  margin-right: 5px;
 }
 
 .radio__input {
-  margin: 5px;
+  margin: 5px 10px 5px 10px;
   border-radius: 50%;
   width: 16px;
   height: 16px;
@@ -140,12 +150,41 @@ input[placeholder]:hover {
   outline: none;
 }
 
+.filters__gender {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.filters__checkbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .checkbox__label {
+  font-size: 14px;
+  color: $colorBrand1;
+  text-transform: uppercase;
+}
+
+.checkbox__legend {
   font-size: 14px;
   color: $colorBrand1;
 }
 
 .checkbox__input {
-  font-size: 14px;
-  color: $colorBrand1;
+  margin: 5px 10px 5px 10px;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox__input:checked {
+  appearance: none;
+  border: 8px solid $colorBrand1;
+  box-shadow: 0 0 0 3px #ffffff;
+  outline: none;
 }
