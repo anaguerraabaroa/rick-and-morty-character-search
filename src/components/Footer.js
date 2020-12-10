@@ -3,7 +3,9 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="footer" role="contentinfo">
-      <small className="footer__small">@2020.Ana Guerra Abaroa</small>
+      <small className="footer__small">
+        @2020 Developed by Ana Guerra Abaroa
+      </small>
       <nav className="footer__menu" role="navigation">
         <ul className="footer__menu--logos">
           <li className="logo">
