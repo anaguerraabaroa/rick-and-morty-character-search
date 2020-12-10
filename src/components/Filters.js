@@ -6,6 +6,7 @@ import FilterByStatus from "./FilterByStatus";
 import FilterByGender from "./FilterByGender";
 
 const Filters = (props) => {
+  // prevent event
   const preventDefault = (ev) => ev.preventDefault();
 
   return (
@@ -13,7 +14,7 @@ const Filters = (props) => {
       <form className="form" onSubmit={preventDefault}>
         <FilterByName
           handleFilter={props.handleFilter}
-          filterText={props.filterText}
+          filterName={props.filterName}
         />
         <div className="form__filters--wrapper">
           <FilterBySpecies
@@ -39,11 +40,11 @@ const Filters = (props) => {
   );
 };
 
-// verify types
+// control data
 Filters.propTypes = {
   handleFilter: PropTypes.func.isRequired,
   handleClick: PropTypes.func.isRequired,
-  filterText: PropTypes.string.isRequired,
+  filterName: PropTypes.string.isRequired,
   filterSpecies: PropTypes.string.isRequired,
   filterStatus: PropTypes.string.isRequired,
   filteredCharacterGender: PropTypes.array.isRequired,

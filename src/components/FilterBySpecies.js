@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const FilterBySpecies = (props) => {
-  //event
+  // event handler
   const handleFilter = (ev) => {
     const data = {
       name: ev.currentTarget.name,
@@ -31,6 +31,7 @@ const FilterBySpecies = (props) => {
   );
 };
 
+// control data
 FilterBySpecies.propTypes = {
   handleFilter: PropTypes.func.isRequired,
   filterSpecies: PropTypes.string.isRequired,

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const FilterByGender = (props) => {
-  // event
+  // event handler
   const handleFilter = (ev) => {
     const data = {
       name: ev.currentTarget.name,
@@ -12,6 +12,7 @@ const FilterByGender = (props) => {
     props.handleFilter(data);
   };
 
+  // render gender list
   const genderElements = props.filteredCharacterGender.map((gender, index) => {
     return (
       <label htmlFor="gender" className="gender__legend" key={index}>
@@ -36,6 +37,7 @@ const FilterByGender = (props) => {
   );
 };
 
+// control data
 FilterByGender.propTypes = {
   handleFilter: PropTypes.func.isRequired,
   filteredCharacterGender: PropTypes.array.isRequired,

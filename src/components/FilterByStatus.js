@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const FilterByStatus = (props) => {
-  //event
+  // event handler
   const handleFilter = (ev) => {
     const data = {
       name: ev.currentTarget.name,
@@ -68,6 +68,7 @@ const FilterByStatus = (props) => {
   );
 };
 
+// control data
 FilterByStatus.propTypes = {
   handleFilter: PropTypes.func.isRequired,
   filterStatus: PropTypes.string.isRequired,

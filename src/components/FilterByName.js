@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const FilterByName = (props) => {
-  //event
+  // event handler
   const handleFilter = (ev) => {
     const data = {
       name: ev.currentTarget.name,
@@ -21,7 +21,7 @@ const FilterByName = (props) => {
         className="form__input--text"
         type="text"
         name="text"
-        value={props.filterText}
+        value={props.filterName}
         placeholder="ej: Rick"
         id="formText"
         onChange={handleFilter}
@@ -30,9 +30,10 @@ const FilterByName = (props) => {
   );
 };
 
+// control data
 FilterByName.propTypes = {
   handleFilter: PropTypes.func.isRequired,
-  filterText: PropTypes.string.isRequired,
+  filterName: PropTypes.string.isRequired,
 };
 
 export default FilterByName;
