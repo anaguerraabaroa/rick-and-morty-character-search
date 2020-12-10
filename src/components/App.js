@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import api from "../services/api";
+import {
+  setInLocalStorage,
+  getFromLocalStorage,
+} from "../services/localStorage";
+import Loading from "./Loading";
 import Header from "./Header";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
@@ -8,20 +13,30 @@ import CharacterDetail from "./CharacterDetail";
 import Footer from "./Footer";
 import "../stylesheets/App.scss";
 
+const dataLocalStorage = getFromLocalStorage();
+
 function App() {
   // state
+  const [isLoading, setIsLoading] = useState(false);
   const [characterList, setCharacterList] = useState([]);
-  const [filterName, setFilterName] = useState("");
-  const [filterSpecies, setFilterSpecies] = useState("all");
-  const [filterStatus, setFilterStatus] = useState("all");
-  const [filterGender, setFilterGender] = useState([]);
+  const [filterName, setFilterName] = useState(dataLocalStorage.name);
+  const [filterSpecies, setFilterSpecies] = useState(dataLocalStorage.species);
+  const [filterStatus, setFilterStatus] = useState(dataLocalStorage.status);
+  const [filterGender, setFilterGender] = useState(dataLocalStorage.gender);
 
-  // lifecycle
+  // lifecycle api
   useEffect(() => {
+    setIsLoading(true);
     api.getDataFromApi().then((data) => {
       setCharacterList(data);
+      setIsLoading(false);
     });
   }, []);
+
+  // lifecycle localStorage
+  useEffect(() => {
+    setInLocalStorage(filterName, filterSpecies, filterStatus, filterGender);
+  });
 
   // event handler
   const handleFilter = (data) => {
@@ -123,26 +138,29 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <main className="main" role="main">
-            <Filters
-              handleFilter={handleFilter}
-              handleClick={handleClick}
-              filterName={filterName}
-              filterSpecies={filterSpecies}
-              filterStatus={filterStatus}
-              filteredCharacterGender={filteredCharacterGender}
-            />
-            <CharacterList characterList={filteredCharacters} />
-          </main>
-        </Route>
-        <Route path="/character-detail/:id" render={renderCharacterDetail} />
-      </Switch>
-      <Footer />
-    </div>
+    <>
+      {isLoading === true ? <Loading /> : null}
+      <div className="app">
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <main className="main" role="main">
+              <Filters
+                handleFilter={handleFilter}
+                handleClick={handleClick}
+                filterName={filterName}
+                filterSpecies={filterSpecies}
+                filterStatus={filterStatus}
+                filteredCharacterGender={filteredCharacterGender}
+              />
+              <CharacterList characterList={filteredCharacters} />
+            </main>
+          </Route>
+          <Route path="/character-detail/:id" render={renderCharacterDetail} />
+        </Switch>
+        <Footer />
+      </div>
+    </>
   );
 }
 

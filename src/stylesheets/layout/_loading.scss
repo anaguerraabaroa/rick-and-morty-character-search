@@ -1,0 +1,19 @@
+.loading {
+  width: 70px;
+  height: 70px;
+  border: 10px solid $colorBrand2;
+  border-top: 10px solid $colorBrand1;
+  border-radius: 50%;
+  animation-name: loading;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
