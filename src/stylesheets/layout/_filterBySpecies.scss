@@ -15,6 +15,7 @@
 }
 
 .species__input--select {
+  width: 95px;
   font-size: 14px;
   padding: 10px;
   margin-bottom: 20px;
@@ -22,7 +23,7 @@
   color: $colorBrand1;
   border: 2px solid $colorBrand1;
   outline: none;
-  @media all and (min-width: 1200px) {
+  @media all and (min-width: 768px) {
     margin-right: 20px;
   }
 }

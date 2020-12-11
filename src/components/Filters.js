@@ -21,16 +21,14 @@ const Filters = (props) => {
             handleFilter={props.handleFilter}
             filterSpecies={props.filterSpecies}
           />
-          <div className="filters__wrapper--inner">
-            <FilterByStatus
-              handleFilter={props.handleFilter}
-              filterStatus={props.filterStatus}
-            />
-            <FilterByGender
-              handleFilter={props.handleFilter}
-              filteredCharacterGender={props.filteredCharacterGender}
-            />
-          </div>
+          <FilterByStatus
+            handleFilter={props.handleFilter}
+            filterStatus={props.filterStatus}
+          />
+          <FilterByGender
+            handleFilter={props.handleFilter}
+            filteredCharacterGender={props.filteredCharacterGender}
+          />
         </div>
         <button className="form__reset" onClick={props.handleClick}>
           <i className="form__reset--icon far fa-trash-alt"></i>Reset
