@@ -4,7 +4,7 @@
 
 Final Module 3 Exercise of the Adalab Digital Frontend Development Bootcamp.
 
-This is a responsive Rick and Morty search engine app developed with `HTML5` , `CSS3` and `React`.
+This is a responsive Rick and Morty search engine app developed with [<img src = "https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">](https://html.spec.whatwg.org/) [<img src = "https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">](https://www.w3.org/Style/CSS/) and [<img src = "https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=black">](https://es.reactjs.org/).
 
 ## **Quick start guide**
 
@@ -12,7 +12,7 @@ Instructions to start this project:
 
 ### **Pre-requirements**
 
-This project is run with React. Start guide [**here**](https://github.com/facebook/create-react-app).
+This project is run with [<img src = "https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=black">](https://es.reactjs.org/). Start guide [**here**](https://github.com/facebook/create-react-app).
 
 ### **Installation**
 
@@ -47,12 +47,6 @@ git push
 3. Run again commands on step 1 to update changes on the project.
 
 4. Project **[URL](https://anaguerraabaroa.github.io/RickandMortySearchEngine/#/)** is also available on GitHub Pages.
-
-## **Development technologies**
-
-- [**`HTML5`**](https://html.spec.whatwg.org/)
-- [**`CSS3`**](https://www.w3.org/Style/CSS/)
-- [**`React`**](https://es.reactjs.org/)
 
 ## **Exercise development requirements**
 
