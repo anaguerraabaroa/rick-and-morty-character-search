@@ -1,69 +1,196 @@
 ![Rick and Morty](https://static1.squarespace.com/static/59bc0ff818b27dff8196865f/59bc14ae37c581cd2123f9cb/59e6d3471f318d351356ec16/1508299598333/rick-and-morty-season-3.jpg?format=1500w)
 
-# MÓDULO 3: EJERCICIO DE EVALUACIÓN FINAL
+# **RickandMortySearchEngine**
 
-Este es el ejercicio de evaluación final del módulo 3 del curso de Programación Frontend de Adalab Digital.
+Final Module 3 Exercise of the Adalab Digital Frontend Development Bootcamp.
 
-## OBJETIVO
+This is a responsive Rick and Morty search engine app developed with `HTML5` , `CSS3` and `React`.
 
-El ejercicio consiste en desarrollar una página web con un listado de personajes de Rick and Morty, pudiendo filtrar por nombre del personaje y acceder a una ficha con los detalles de cada personaje.
+## **Quick start guide**
 
-## REQUISITOS
+Instructions to start this project:
 
-Utilizar para el desarrollo la librería React.
+### **Pre-requirements**
 
-## DESARROLLO
+This project is run with React. Start guide [**here**](https://github.com/facebook/create-react-app).
 
-### Listado de personajes
+### **Installation**
 
-- Acceder con una petición fetch al servicio de datos que devolverá un JSON con la información de los personajes.
-- Endpoint del servicio de datos : https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json
-- Pintar un listado de personajes, recorriendo el array de datos con un método map, que contenga la siguiente información: imagen, nombre y especie del personaje.
+Once React has been installed:
 
-### Filtrado de personajes
+1. Clone repository
+2. Open a terminal
+3. Run `npm install` on the terminal to install local dependencies
 
-- Añadir un campo de texto para poder filtrar personajes por nombre.
-- Recorrer el array de datos y filtrar personajes aplicando los métodos filter e includes.
-- A medida que se va escribiendo en el formulario van quedando en la interfaz únicamente los personajes que contienen las letras escritas en el input.
+### **Run project**
 
-### Componentes utilizados en el ejercicio
+Run `npm start` on the terminal.
 
-- **App:** componente principal.
-- **Header:** cabecera.
-- **Filters:** buscador de personajes por nombre.
-- **CharacterList:** listado de personajes.
-- **CharacterCard:** tarjeta genérica de cada uno de los personajes del listado.
-- **CharacterDetail:** tarjeta con el detalle de cada personaje del listado.
-- **Footer:** copy.
+This command has to be run everytime the project is started in order to:
 
-### Detalle de personajes
+1. Open the project on the browser using a local server.
+2. Refresh browser everytime files contained in `/src` folder are updated.
+3. Compiled files contained in `/src` folder and copy them in `/public` folder in order to be prepared for production environment.
 
-- Utilizar React Router para pintar una tarjeta a pantalla completa con el detalle de cada personaje al hacer click sobre alguno de ellos, haciendo coincidir el id de cada personaje con el id de la ruta utilizando un método find.
-- En los detalles debe aparecer la siguiente información: imagen, nombre, especie, planeta de origen, número de episodios en los que aparece el personaje y si está vivo o muerto.
+### **Deployment**
 
-### Detalles de calidad
+1. Run these commands to update changes on the project:
 
-- Incluir el campo de texto dentro de una etiqueta <form></form> para cuidar la semántica.
-- Impedir que el navegador envíe una petición o cambie de ruta al dar a intro sobre el campo de texto vacío aplicando un prevent event default.
-- Mostrar un mensaje de error al realizar una búsqueda por un personaje que no existe.
-- Filtrar tanto en mayúsculas como en minúsculas desde el campo de texto aplicando un método toLowerCase.
-- Al entrar en detalles del personaje y volver al listado de personajes se debe poder leer el texto que se había incluido inicialmente en el campo de texto. Para ello se recoge el valor del input y aplicando lifting se guarda en el estado del componente principal para bajarlo nuevamente al value del componente filters.
+```
+git add -A
+git commit -m "Message commit"
+git push
+```
 
-### BONUS: Mejoras visuales
+2. Run `npm run build` to create `/docs` folder and the production environment version.
 
-- Mostrar la especie y el estado del personaje con un icono.
-- Usar un sistema de grid para pintar el listado de personajes.
-- Cuidar el funcionamiento del responsive en dispositivos pequeños.
+3. Run again commands on step 1 to update changes on the project.
 
-### BONUS: URL compartible
+4. Project **[URL](https://anaguerraabaroa.github.io/RickandMortySearchEngine/#/)** is also available on GitHub Pages.
 
-- La URL del detalle del personaje debe ser compatible y poder acceder a ella visitándola directamente desde el navegador.
-- Mostrar un mensaje de error si se introduce una ruta inexistente en el navegador.
+## **Development technologies**
 
-### BONUS: Ordenación
+- [**`HTML5`**](https://html.spec.whatwg.org/)
+- [**`CSS3`**](https://www.w3.org/Style/CSS/)
+- [**`React`**](https://es.reactjs.org/)
 
-- Ordenar alfabéticamente el listado de personajes utilizando un método sort.
+## **Exercise development requirements**
 
-## RESULTADO
+- React app
+- Get characters from API: https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json
+- Components structure
+- Render an alphabetically ordered character list with image, name and species
+- Form with filters by name (uppercase and lowercase), species, status and gender
+- Detailed character card new window using React Router with image, name, species, status, origin planet and number of episodes. Use icons to render species and status
+- Prevent event default of form
+- Render error messages when searched character doesn't exist or when the URL of detailed character card doesn't exist
+- Save search when user enter on detailed character card and go back to form
+- Loading component
+- Save data on LocalStorage
+- Grid character list layout
+- Responsive app design for mobile, tablet and desktop devices
 
-- URL del ejercicio: http://beta.adalab.es/modulo-3-evaluacion-final-anaguerraabaroa/#/
+## **Folder Structure**
+
+```
+RickandMortySearchEngine
+├── docs
+├── node_modules
+├── public
+├── src
+│   ├── components
+│   │   ├── App.js
+│   │   ├── CharacterCard.js
+│   │   ├── CharacterDetail.js
+│   │   ├── CharacterList.js
+│   │   ├── FilterByGender.js
+│   │   ├── FilterByName.js
+│   │   ├── FilterBySpecies.js
+│   │   ├── FilterByStatus.js
+│   │   ├── Filters.js
+│   │   ├── Footer.js
+│   │   ├── Header.js
+│   │   └── Loading.js
+│   ├── images
+│   │    ├── background.gif
+│   │    ├── header_image.gif
+│   │    ├── header_logo.png
+│   │    ├── rick_morty_mobile.jpg
+│   │    ├── rick_morty_tablet.jpg
+│   │    └── rick_morty_desktop.jpg
+│   ├── services
+│   │    ├── api.js
+│   │    └── localStorage.js
+│   ├── stylesheets
+│   │   ├── core
+│   │   │   ├── _reset.scss
+│   │   │   └── _variables.scss
+│   │   ├── layout
+│   │   │   ├── _characterCard.scss
+│   │   │   ├── _characterDetail.scss
+│   │   │   ├── _characterList.scss
+│   │   │   ├── _filterByGender.scss
+│   │   │   ├── _filterByName.scss
+│   │   │   ├── _filterBySpecies.scss
+│   │   │   ├── _filterByStatus.scss
+│   │   │   ├── _filters.scss
+│   │   │   ├── _footer.scss
+│   │   │   ├── _header.scss
+│   │   │   └── _loading.scss
+│   │   ├── pages
+│   │   │   └── index.scss
+│   │   └── App.scss
+│   └── index.js
+├── .gitignore
+├── debug.log
+├── package-lock.json
+├── package.json
+└── README.md
+```
+
+## **Components and functions**
+
+### **App component**
+
+- **Handle app:** function App()
+- **Handle api, loading and LocalStorage lifecycle:** useEffect()
+- **Handle form filters:** const handleFilter
+- **Handle reset form filters:** const handleClick
+- **Render filters**: const filteredCharacters, const characterGender, const filteredCharacterGender
+- **Render detailed character card**: const renderCharacterDetail
+
+### **Loading component**
+
+- **Render loading:** const Loading
+
+### **Header component**
+
+- **Render header:** const Header
+
+### **Filters component**
+
+- **Render form and prevent event default**: const Filters
+
+### **FilterByName component**
+
+- **Event listener**: const handleFilter
+- **Render filter**: const FilterByName
+
+### **FilterBySpecies component**
+
+- **Event listener**: const handleFilter
+- **Render filter**: const FilterBySpecies
+
+### **FilterByStatus component**
+
+- **Event listener**: const handleFilter
+- **Render filter**: const FilterByStatus
+
+### **FilterByGender component**
+
+- **Event listener**: const handleFilter
+- **Render filter**: const FilterByGender
+
+### **CharacterList component**
+
+- **Render alphabetically ordered list of Pokemon:** const CharacterList, const sortCharacterList
+- **Render individual character card component:** const characterItems
+- **Render search error message:** const searchResults
+
+### **CharacterCard component**
+
+- **Render individual character card data:** const CharacterCard
+
+### **CharacterDetail component**
+
+- **Render detailed character card data:** const CharacterDetail
+- **Render species icon on detailed character card data:** const renderIconSpecies
+- **Render status icon on detailed character card data:** const renderIconStatus
+
+### **Footer component**
+
+- **Render footer:** const Footer
+
+## **Result**
+
+![Mobile version](./src/images/rick_morty_mobile.jpg) ![Tablet version](./src/images/rick_morty_tablet.jpg) ![Desktop version](./src/images/rick_morty_desktop.jpg)
