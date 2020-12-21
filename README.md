@@ -24,9 +24,7 @@ Once React has been installed:
 
 ### **Run project**
 
-Run `npm start` on the terminal.
-
-This command has to be run everytime the project is started in order to:
+Run `npm start` on the terminal:
 
 1. Open the project on the browser using a local server.
 2. Refresh browser everytime files contained in `/src` folder are updated.
@@ -51,7 +49,7 @@ git push
 ## **Exercise development requirements**
 
 - React app
-- Get characters from API: https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json
+- Get characters from [API](https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json)
 - Components structure
 - Render an alphabetically ordered character list with image, name and species
 - Form with filters by name (uppercase and lowercase), species, status and gender
