@@ -115,6 +115,7 @@ RickandMortySearchEngine
 │   └── index.js
 ├── .gitignore
 ├── debug.log
+├── LICENSE
 ├── package-lock.json
 ├── package.json
 └── README.md
