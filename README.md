@@ -186,3 +186,7 @@ RickandMortySearchEngine
 ## **Result**
 
 ![Mobile version](./src/images/rick_morty_mobile.jpg) ![Tablet version](./src/images/rick_morty_tablet.jpg) ![Desktop version](./src/images/rick_morty_desktop.jpg)
+
+## **License**
+
+This project is licensed under [**MIT License**](https://spdx.org/licenses/MIT.html).
