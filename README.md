@@ -30,7 +30,7 @@ Run `npm start` on the terminal:
 2. Refresh browser everytime files contained in `/src` folder are updated.
 3. Compiled files contained in `/src` folder and copy them in `/public` folder in order to be prepared for production environment.
 
-### **Deployment**
+### **Updating**
 
 1. Run these commands to update changes on the project:
 
