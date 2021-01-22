@@ -46,7 +46,7 @@ git push
 
 4. Project **[URL](https://anaguerraabaroa.github.io/RickandMortySearchEngine/#/)** is also available on GitHub Pages.
 
-## **Exercise features**
+## **Project features**
 
 - React app
 - Get characters from [API](https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json)
