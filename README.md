@@ -166,7 +166,7 @@ RickandMortySearchEngine
 
 ### **CharacterList component**
 
-- **Render alphabetically ordered list of Pokemon:** const CharacterList, const sortCharacterList
+- **Render character list alphabetically ordered:** const CharacterList, const sortCharacterList
 - **Render individual character card component:** const characterItems
 - **Render search error message:** const searchResults
 
