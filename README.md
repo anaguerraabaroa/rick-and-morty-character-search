@@ -166,7 +166,7 @@ RickandMortySearchEngine
 
 ### **CharacterList component**
 
-- **Render character list alphabetically ordered:** const CharacterList, const sortCharacterList
+- **Render alphabetically ordered character list:** const CharacterList, const sortCharacterList
 - **Render individual character card component:** const characterItems
 - **Render search error message:** const searchResults
 
