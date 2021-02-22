@@ -184,7 +184,7 @@ RickandMortySearchEngine
 
 - **Render footer:** const Footer
 
-## **Project captures**
+## **Screenshots**
 
 ![Mobile version](./src/images/rick_morty_mobile.jpg) ![Tablet version](./src/images/rick_morty_tablet.jpg) ![Desktop version](./src/images/rick_morty_desktop.jpg)
 
