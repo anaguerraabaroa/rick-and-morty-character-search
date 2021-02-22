@@ -49,7 +49,7 @@ git push
 ## **Project features**
 
 - React app
-- Get characters from [API](https://rickandmortyapi.com/api/character)
+- Get characters from **[API](https://rickandmortyapi.com/api/character)**
 - Components structure
 - Render an alphabetically ordered character list with image, name and species
 - Form with filters by name (uppercase and lowercase), species, status and gender
