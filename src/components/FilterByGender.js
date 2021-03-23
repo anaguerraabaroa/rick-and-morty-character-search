@@ -22,6 +22,7 @@ const FilterByGender = (props) => {
           type="checkbox"
           value={gender}
           name="gender"
+          checked={props.isChecked}
           onChange={handleFilter}
         />
         {gender}
@@ -41,6 +42,7 @@ const FilterByGender = (props) => {
 FilterByGender.propTypes = {
   handleFilter: PropTypes.func.isRequired,
   filteredCharacterGender: PropTypes.array.isRequired,
+  isChecked: PropTypes.bool.isRequired,
 };
 
 export default FilterByGender;
