@@ -23,7 +23,6 @@ function App() {
   const [filterSpecies, setFilterSpecies] = useState(dataLocalStorage.species);
   const [filterStatus, setFilterStatus] = useState(dataLocalStorage.status);
   const [filterGender, setFilterGender] = useState(dataLocalStorage.gender);
-  const [isChecked, setIsChecked] = useState(false);
 
   // lifecycle api
   useEffect(() => {
@@ -52,7 +51,6 @@ function App() {
         const newFilterGender = [...filterGender];
         newFilterGender.push(data.value);
         setFilterGender(newFilterGender);
-        setIsChecked(newFilterGender.checked);
       } else {
         const newFilterGender = filterGender.filter((gender) => {
           return gender !== data.value;
@@ -63,7 +61,6 @@ function App() {
           // setFilterGender(newFilterGender);
         });
         setFilterGender(newFilterGender);
-        setIsChecked(newFilterGender.checked);
       }
     }
   };
@@ -74,7 +71,6 @@ function App() {
     setFilterSpecies("all");
     setFilterStatus("all");
     setFilterGender([]);
-    setIsChecked(false);
   };
 
   // render filters
@@ -156,7 +152,6 @@ function App() {
                 filterSpecies={filterSpecies}
                 filterStatus={filterStatus}
                 filteredCharacterGender={filteredCharacterGender}
-                isChecked={isChecked}
               />
               <CharacterList characterList={filteredCharacters} />
             </main>

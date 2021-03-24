@@ -28,7 +28,6 @@ const Filters = (props) => {
           <FilterByGender
             handleFilter={props.handleFilter}
             filteredCharacterGender={props.filteredCharacterGender}
-            isChecked={props.isChecked}
           />
         </div>
         <button className="form__reset" onClick={props.handleClick}>
@@ -47,7 +46,6 @@ Filters.propTypes = {
   filterSpecies: PropTypes.string.isRequired,
   filterStatus: PropTypes.string.isRequired,
   filteredCharacterGender: PropTypes.array.isRequired,
-  isChecked: PropTypes.bool.isRequired,
 };
 
 export default Filters;
