@@ -65,7 +65,7 @@ git push
 ## **Folder Structure**
 
 ```
-RickandMortySearchEngine
+Rick and Morty Character Search
 ├── docs
 ├── node_modules
 ├── public
