@@ -1,4 +1,4 @@
-![Rick and Morty](https://static1.squarespace.com/static/59bc0ff818b27dff8196865f/59bc14ae37c581cd2123f9cb/59e6d3471f318d351356ec16/1508299598333/rick-and-morty-season-3.jpg?format=1500w)
+![Mobile version](./src/images/rick_morty_mobile.png) ![Tablet version](./src/images/rick_morty_tablet.png) ![Desktop version](./src/images/rick_morty_desktop.png)
 
 # **Rick and Morty Character Search**
 
@@ -87,9 +87,9 @@ Rick and Morty Character Search
 │   │    ├── background.gif
 │   │    ├── header_image.gif
 │   │    ├── header_logo.png
-│   │    ├── rick_morty_mobile.jpg
-│   │    ├── rick_morty_tablet.jpg
-│   │    └── rick_morty_desktop.jpg
+│   │    ├── rick_morty_mobile.png
+│   │    ├── rick_morty_tablet.png
+│   │    └── rick_morty_desktop.png
 │   ├── services
 │   │    ├── api.js
 │   │    └── localStorage.js
@@ -183,10 +183,6 @@ Rick and Morty Character Search
 ### **Footer component**
 
 - **Render footer:** const Footer
-
-## **Screenshots**
-
-![Mobile version](./src/images/rick_morty_mobile.jpg) ![Tablet version](./src/images/rick_morty_tablet.jpg) ![Desktop version](./src/images/rick_morty_desktop.jpg)
 
 ## **License**
 
