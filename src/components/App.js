@@ -24,6 +24,11 @@ function App() {
   const [filterStatus, setFilterStatus] = useState(dataLocalStorage.status);
   const [filterGender, setFilterGender] = useState(dataLocalStorage.gender);
 
+  // lifecycle localStorage
+  useEffect(() => {
+    setInLocalStorage(filterName, filterSpecies, filterStatus, filterGender);
+  });
+
   // lifecycle api
   useEffect(() => {
     setIsLoading(true);
@@ -32,11 +37,6 @@ function App() {
       setIsLoading(false);
     });
   }, []);
-
-  // lifecycle localStorage
-  useEffect(() => {
-    setInLocalStorage(filterName, filterSpecies, filterStatus, filterGender);
-  });
 
   // event handler
   const handleFilter = (data) => {
@@ -65,12 +65,20 @@ function App() {
     }
   };
 
-  // reset filters
-  const handleClick = () => {
-    setFilterName("");
-    setFilterSpecies("all");
-    setFilterStatus("all");
-    setFilterGender([]);
+  // get gender array
+  const getGender = () => {
+    const characterGender = characterList.map((character) => {
+      return character.gender;
+    });
+
+    // remove duplicate gender
+    const checkDuplicateGender = characterGender.filter((character, index) => {
+      return characterGender.indexOf(character) === index;
+    });
+
+    // new gender array
+    const filteredGender = [...new Set(characterGender)];
+    return filteredGender;
   };
 
   // render filters
@@ -100,17 +108,15 @@ function App() {
       }
     });
 
-  // get gender array
-  const characterGender = characterList.map((character) => {
-    return character.gender;
-  });
+  // reset filters
+  const handleClick = () => {
+    setFilterName("");
+    setFilterSpecies("all");
+    setFilterStatus("all");
+    setFilterGender([]);
+  };
 
-  // remove duplicate data from gender array
-  const filteredCharacterGender = characterGender.filter((character, index) => {
-    return characterGender.indexOf(character) === index;
-  });
-
-  // render character details
+  // render character details or error message
   const renderCharacterDetail = (props) => {
     const characterId = parseInt(props.match.params.id);
     const foundCharacter = characterList.find((character) => {
@@ -151,7 +157,8 @@ function App() {
                 filterName={filterName}
                 filterSpecies={filterSpecies}
                 filterStatus={filterStatus}
-                filteredCharacterGender={filteredCharacterGender}
+                filterGender={filterGender}
+                getGender={getGender()}
               />
               <CharacterList characterList={filteredCharacters} />
             </main>

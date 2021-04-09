@@ -13,7 +13,7 @@ const FilterByGender = (props) => {
   };
 
   // render gender list
-  const genderElements = props.filteredCharacterGender.map((gender, index) => {
+  const genderElements = props.getGender.map((gender, index) => {
     return (
       <label htmlFor="gender" className="gender__legend" key={index}>
         <input
@@ -23,6 +23,7 @@ const FilterByGender = (props) => {
           value={gender}
           name="gender"
           onChange={handleFilter}
+          checked={props.filterGender.includes(gender)}
         />
         {gender}
       </label>
@@ -40,7 +41,8 @@ const FilterByGender = (props) => {
 // control data
 FilterByGender.propTypes = {
   handleFilter: PropTypes.func.isRequired,
-  filteredCharacterGender: PropTypes.array.isRequired,
+  getGender: PropTypes.array.isRequired,
+  filterGender: PropTypes.array.isRequired,
 };
 
 export default FilterByGender;

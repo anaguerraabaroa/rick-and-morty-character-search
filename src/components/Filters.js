@@ -27,7 +27,8 @@ const Filters = (props) => {
           />
           <FilterByGender
             handleFilter={props.handleFilter}
-            filteredCharacterGender={props.filteredCharacterGender}
+            filterGender={props.filterGender}
+            getGender={props.getGender}
           />
         </div>
         <button className="form__reset" onClick={props.handleClick}>
@@ -45,7 +46,8 @@ Filters.propTypes = {
   filterName: PropTypes.string.isRequired,
   filterSpecies: PropTypes.string.isRequired,
   filterStatus: PropTypes.string.isRequired,
-  filteredCharacterGender: PropTypes.array.isRequired,
+  filterGender: PropTypes.array.isRequired,
+  getGender: PropTypes.array.isRequired,
 };
 
 export default Filters;
