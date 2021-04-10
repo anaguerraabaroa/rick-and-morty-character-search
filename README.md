@@ -172,7 +172,21 @@ function App() {
 
 ```
 
-### **2. FilterByName component**
+### **2. Characters list API request component**
+
+- Handle fetch API request
+
+```javascript
+const getDataFromApi = () => {
+  return fetch("https://rickandmortyapi.com/api/character")
+    .then((response) => response.json())
+    .then((data) => {
+      return data.results;
+    });
+};
+```
+
+### **3. FilterByName component**
 
 - Handle filter by name component
 
@@ -206,7 +220,7 @@ const FilterByName = (props) => {
 };
 ```
 
-### **3. FilterBySpecies component**
+### **4. FilterBySpecies component**
 
 - Handle filter by species component
 
@@ -241,7 +255,7 @@ const FilterBySpecies = (props) => {
 };
 ```
 
-### **4. FilterByStatus component**
+### **5. FilterByStatus component**
 
 - Handle filter by status component
 
@@ -313,7 +327,7 @@ const FilterByStatus = (props) => {
 };
 ```
 
-### **5. FilterByGender component**
+### **6. FilterByGender component**
 
 - Handle filter by gender component
 
@@ -354,7 +368,7 @@ const FilterByGender = (props) => {
 };
 ```
 
-### **6. CharacterList component**
+### **7. CharacterList component**
 
 - Render alphabetically ordered character list and create individual character card or render search error message
 
@@ -392,7 +406,7 @@ const CharacterList = (props) => {
 };
 ```
 
-### **7. CharacterCard component**
+### **8. CharacterCard component**
 
 - Render individual character card
 
@@ -420,7 +434,7 @@ const CharacterCard = (props) => {
 };
 ```
 
-### **8. CharacterDetail component**
+### **9. CharacterDetail component**
 
 - Render individual character details card adding species and status icons
 
@@ -486,6 +500,39 @@ const CharacterDetail = (props) => {
       </article>
     </section>
   );
+};
+```
+
+### **10. LocalStorage component**
+
+- Set data in LocalStorage and get data from LocalStorage
+
+```javascript
+const setInLocalStorage = (
+  filterName,
+  filterSpecies,
+  filterStatus,
+  filterGender
+) => {
+  const filters = {
+    name: filterName.toLowerCase(),
+    species: filterSpecies.toLowerCase(),
+    status: filterStatus.toLowerCase(),
+    gender: filterGender,
+  };
+  localStorage.setItem("filters", JSON.stringify(filters));
+};
+
+const getFromLocalStorage = () => {
+  const dataLocalStorage = JSON.parse(localStorage.getItem("filters"));
+  return dataLocalStorage !== null
+    ? dataLocalStorage
+    : {
+        name: "",
+        species: "all",
+        status: "all",
+        gender: [],
+      };
 };
 ```
 
