@@ -4,47 +4,34 @@
 
 Module 3 final project of the Adalab Digital Frontend Development Bootcamp.
 
-This is a responsive Rick and Morty character search web app developed with [<img src = "https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">](https://html.spec.whatwg.org/) [<img src = "https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">](https://www.w3.org/Style/CSS/) [<img src="https://img.shields.io/badge/-SASS-cc6699?style=flat&logo=sass&logoColor=ffffff">](https://sass-lang.com/) [<img src = "https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black">](https://www.ecma-international.org/ecma-262/) and [<img src = "https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=black">](https://es.reactjs.org/).
+This is a responsive Rick and Morty character search web app developed with [<img src = "https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">](https://html.spec.whatwg.org/) [<img src="https://img.shields.io/badge/-SASS-cc6699?style=for-the-badge&logo=sass&logoColor=ffffff">](https://sass-lang.com/)
+[<img src = "https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">](https://www.w3.org/Style/CSS/) [<img src = "https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">](https://www.ecma-international.org/ecma-262/) and [<img src = "https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black">](https://es.reactjs.org/)
 
 ## **Quick start guide**
 
 Instructions to start this project:
 
-### **Pre-requirements**
+## Installation
 
-This project runs with [<img src = "https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=black">](https://es.reactjs.org/). Start guide [**here**](https://github.com/facebook/create-react-app).
-
-### **Installation**
-
-Once React has been installed:
-
-1. Clone repository
-2. Open a terminal
-3. Run `npm install` on the terminal to install local dependencies
-
-### **Run project**
-
-Run `npm start` on the terminal:
-
-1. Open the project on the browser using a local server.
-2. Refresh browser everytime files contained in `/src` folder are updated.
-3. Compiled files contained in `/src` folder and copy them in `/public` folder in order to be prepared for production environment.
-
-### **Updating**
-
-1. Run these commands to update changes on the project:
+- Clone repository:
 
 ```
-git add -A
-git commit -m "Message commit"
-git push
+git clone [repository]
 ```
 
-2. Run `npm run build` to create `/docs` folder and the production environment version.
+- Install NPM packages and dependencies:
 
-3. Run again commands on step 1 to update changes on the project.
+```
+npm install
+```
 
-4. Project **[URL](https://anaguerraabaroa.github.io/rick-and-morty-character-search/#/)** is also available on GitHub Pages.
+- Run project on local server:
+
+```
+npm start
+```
+
+- **[Project URL](https://anaguerraabaroa.github.io/rick-and-morty-character-search/#/)** is also available on GitHub Pages.
 
 ## **Project features**
 
@@ -61,6 +48,446 @@ git push
 - Save data on LocalStorage
 - Grid character list layout
 - Responsive app design for mobile, tablet and desktop devices
+
+## **Usage**
+
+### **1. App component**
+
+- Handle app, state, lifecycle, filters and reset and create individual character card component
+
+```javascript
+
+function App() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [characterList, setCharacterList] = useState([]);
+  const [filterName, setFilterName] = useState(dataLocalStorage.name);
+  const [filterSpecies, setFilterSpecies] = useState(dataLocalStorage.species);
+  const [filterStatus, setFilterStatus] = useState(dataLocalStorage.status);
+  const [filterGender, setFilterGender] = useState(dataLocalStorage.gender);
+
+  useEffect(() => {
+    setInLocalStorage(filterName, filterSpecies, filterStatus, filterGender);
+  });
+
+  useEffect(() => {
+    setIsLoading(true);
+    api.getDataFromApi().then((data) => {
+      setCharacterList(data);
+      setIsLoading(false);
+    });
+  }, []);
+
+  const handleFilter = (data) => {
+    if (data.name === "text") {
+      setFilterName(data.value);
+    } else if (data.name === "species") {
+      setFilterSpecies(data.value);
+    } else if (data.name === "status") {
+      setFilterStatus(data.value);
+    } else if (data.name === "gender") {
+      if (data.checked === true) {
+        const newFilterGender = [...filterGender];
+        newFilterGender.push(data.value);
+        setFilterGender(newFilterGender);
+      } else {
+        const newFilterGender = filterGender.filter((gender) => {
+          return gender !== data.value;
+        });
+        setFilterGender(newFilterGender);
+      }
+    }
+  };
+
+  const getGender = () => {
+    const characterGender = characterList.map((character) => {
+      return character.gender;
+    });
+
+    const checkDuplicateGender = characterGender.filter((character, index) => {
+      return characterGender.indexOf(character) === index;
+    });
+
+    const filteredGender = [...new Set(characterGender)];
+    return filteredGender;
+  };
+
+  const filteredCharacters = characterList
+    .filter((character) => {
+      return character.name.toLowerCase().includes(filterName.toLowerCase());
+    })
+    .filter((character) => {
+      if (filterSpecies === "all") {
+        return characterList;
+      } else {
+        return character.species.toLowerCase() === filterSpecies;
+      }
+    })
+    .filter((character) => {
+      if (filterStatus === "all") {
+        return characterList;
+      } else {
+        return character.status.toLowerCase() === filterStatus;
+      }
+    })
+    .filter((character) => {
+      if (filterGender.length === 0) {
+        return characterList;
+      } else {
+        return filterGender.includes(character.gender);
+      }
+    });
+
+  const handleClick = () => {
+    setFilterName("");
+    setFilterSpecies("all");
+    setFilterStatus("all");
+    setFilterGender([]);
+  };
+
+  const renderCharacterDetail = (props) => {
+    const characterId = parseInt(props.match.params.id);
+    const foundCharacter = characterList.find((character) => {
+      return character.id === characterId;
+    });
+    if (foundCharacter) {
+      return <CharacterDetail foundCharacter={foundCharacter} />;
+    } else {
+      return (
+        <div className="error__route">
+          <i className="error__route--icon fas fa-rocket"></i>
+          <p className="error__route--text">
+            We are sorry but you are trying to land on a nonexistent planet
+          </p>
+          <Link
+            to="/"
+            className="error_route--btn"
+            title="Back to character list"
+          >
+            Return
+          </Link>
+        </div>
+      );
+    }
+  };
+
+```
+
+### **2. FilterByName component**
+
+- Handle filter by name component
+
+```javascript
+const FilterByName = (props) => {
+  const handleFilter = (ev) => {
+    const data = {
+      name: ev.currentTarget.name,
+      value: ev.currentTarget.value,
+    };
+    props.handleFilter(data);
+  };
+
+  return (
+    <>
+      <i className="form__icon fab fa-reddit-alien"></i>
+      <label className="form__label" htmlFor="formText">
+        Enter your favourite character
+      </label>
+      <input
+        className="form__input--text"
+        type="text"
+        name="text"
+        value={props.filterName}
+        placeholder="ej: Rick"
+        id="formText"
+        onChange={handleFilter}
+      />
+    </>
+  );
+};
+```
+
+### **3. FilterBySpecies component**
+
+- Handle filter by species component
+
+```javascript
+const FilterBySpecies = (props) => {
+  const handleFilter = (ev) => {
+    const data = {
+      name: ev.currentTarget.name,
+      value: ev.currentTarget.value,
+    };
+    props.handleFilter(data);
+  };
+
+  return (
+    <div className="form__filter--species">
+      <label className="species__label" htmlFor="species">
+        Species:
+      </label>
+      <select
+        className="species__input--select"
+        id="species"
+        name="species"
+        value={props.filterSpecies}
+        onChange={handleFilter}
+      >
+        <option value="all">All</option>
+        <option value="human">Human</option>
+        <option value="alien">Alien</option>
+      </select>
+    </div>
+  );
+};
+```
+
+### **4. FilterByStatus component**
+
+- Handle filter by status component
+
+```javascript
+const FilterByStatus = (props) => {
+  const handleFilter = (ev) => {
+    const data = {
+      name: ev.currentTarget.name,
+      value: ev.currentTarget.value,
+    };
+    props.handleFilter(data);
+  };
+
+  return (
+    <div className="form__filter--status">
+      <label className="status__label">Status:</label>
+      <div className="status__radio--wrapper">
+        <label className="status__legend" htmlFor="status1">
+          <input
+            className="status__input--radio"
+            id="status1"
+            type="radio"
+            value="all"
+            name="status"
+            onChange={handleFilter}
+            checked={props.filterStatus === "all"}
+          />
+          All
+        </label>
+        <label className="status__legend" htmlFor="status2">
+          <input
+            className="status__input--radio"
+            id="status2"
+            type="radio"
+            value="alive"
+            name="status"
+            onChange={handleFilter}
+            checked={props.filterStatus === "alive"}
+          />
+          Alive
+        </label>
+        <label className="status__legend" htmlFor="status3">
+          <input
+            className="status__input--radio"
+            id="status3"
+            type="radio"
+            value="dead"
+            name="status"
+            onChange={handleFilter}
+            checked={props.filterStatus === "dead"}
+          />
+          Dead
+        </label>
+        <label className="status__legend" htmlFor="status4">
+          <input
+            className="status__input--radio"
+            id="status4"
+            type="radio"
+            value="unknown"
+            name="status"
+            onChange={handleFilter}
+            checked={props.filterStatus === "unknown"}
+          />
+          Unknown
+        </label>
+      </div>
+    </div>
+  );
+};
+```
+
+### **5. FilterByGender component**
+
+- Handle filter by gender component
+
+```javascript
+const FilterByGender = (props) => {
+  const handleFilter = (ev) => {
+    const data = {
+      name: ev.currentTarget.name,
+      value: ev.currentTarget.value,
+      checked: ev.currentTarget.checked,
+    };
+    props.handleFilter(data);
+  };
+
+  const genderElements = props.getGender.map((gender, index) => {
+    return (
+      <label htmlFor="gender" className="gender__legend" key={index}>
+        <input
+          className="gender__input--checkbox"
+          id="gender"
+          type="checkbox"
+          value={gender}
+          name="gender"
+          onChange={handleFilter}
+          checked={props.filterGender.includes(gender)}
+        />
+        {gender}
+      </label>
+    );
+  });
+
+  return (
+    <div className="form__filter--gender">
+      <label className="gender__label">Gender:</label>
+      <div className="gender__checkbox--wrapper">{genderElements}</div>
+    </div>
+  );
+};
+```
+
+### **6. CharacterList component**
+
+- Render alphabetically ordered character list and create individual character card or render search error message
+
+```javascript
+const CharacterList = (props) => {
+  const sortCharacterList = props.characterList.sort((a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    } else if (a.name < b.name) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+
+  const characterItems = sortCharacterList.map((character) => {
+    return (
+      <li key={character.id} className="character__list--item">
+        <CharacterCard character={character} />
+      </li>
+    );
+  });
+
+  const searchResults =
+    sortCharacterList.length !== 0 ? (
+      <ul className="character__results--list">{characterItems}</ul>
+    ) : (
+      <p className="character__results--error">
+        We <i className="character__error--icon fas fa-heart"></i> your creativity
+        but we are afraid that this character doesn't exist
+      </p>
+    );
+
+  return <section className="character__results">{searchResults}</section>;
+};
+```
+
+### **7. CharacterCard component**
+
+- Render individual character card
+
+```javascript
+const CharacterCard = (props) => {
+  return (
+    <article className="character__card">
+      <img
+        src={props.character.image}
+        alt={props.character.name}
+        title={props.character.name}
+        className="character__card--img"
+      />
+      <h2 className="character__card--name">{props.character.name}</h2>
+      <p className="character__card--species">{props.character.species}</p>
+      <Link
+        to={`/character-detail/${props.character.id}`}
+        className="character__card--link"
+        title="Go to character detail"
+      >
+        More info
+      </Link>
+    </article>
+  );
+};
+```
+
+### **8. CharacterDetail component**
+
+- Render individual character details card adding species and status icons
+
+```javascript
+const CharacterDetail = (props) => {
+  const renderIconSpecies = () => {
+    if (props.foundCharacter.species === "Human") {
+      return <i className="card__details--icon fas fa-male"></i>;
+    } else if (props.foundCharacter.species === "Alien") {
+      return <i className="card__details--icon fab fa-reddit-alien"></i>;
+    } else if (props.foundCharacter.species === "unknown") {
+      return <i className="card__details--icon fas fa-question"></i>;
+    }
+  };
+
+  const renderIconStatus = () => {
+    if (props.foundCharacter.status === "Alive") {
+      return <i className="card__details--icon fas fa-heartbeat"></i>;
+    } else if (props.foundCharacter.status === "Dead") {
+      return <i className="card__details--icon fas fa-skull-crossbones"></i>;
+    } else if (props.foundCharacter.status === "unknown") {
+      return <i className="card__details--icon fas fa-question"></i>;
+    }
+  };
+
+  return (
+    <section className="card">
+      <article className="card__details">
+        <img
+          src={props.foundCharacter.image}
+          title={props.foundCharacter.name}
+          alt={props.foundCharacter.name}
+          className="card__details--img"
+        />
+        <div className="card__details--wrapper">
+          <h2 className="card__details--name">{props.foundCharacter.name}</h2>
+          <ul className="card__details--list">
+            <li className="details__list--item">
+              <span className="details__title">Planet:</span>
+              {props.foundCharacter.origin.name}
+            </li>
+            <li className="details__list--item">
+              <span className="details__title">Species:</span>
+              {renderIconSpecies()}
+            </li>
+            <li className="details__list--item">
+              <span className="details__title">Status:</span>
+              {renderIconStatus()}
+            </li>
+            <li className="details__list--item">
+              <span className="details__title">Episodes:</span>
+              {props.foundCharacter.episode.length}
+            </li>
+          </ul>
+          <Link
+            to="/"
+            className="card__details--link"
+            title="Back to character list"
+          >
+            Return
+          </Link>
+        </div>
+      </article>
+    </section>
+  );
+};
+```
 
 ## **Folder Structure**
 
@@ -121,69 +548,6 @@ Rick and Morty Character Search
 └── README.md
 ```
 
-## **Components and functions**
-
-### **App component**
-
-- **Handle app:** function App()
-- **Handle api, loading and LocalStorage lifecycle:** useEffect()
-- **Handle form filters:** const handleFilter
-- **Handle reset form filters:** const handleClick
-- **Render filters**: const filteredCharacters, const characterGender, const filteredCharacterGender
-- **Render detailed character card**: const renderCharacterDetail
-
-### **Loading component**
-
-- **Render loading:** const Loading
-
-### **Header component**
-
-- **Render header:** const Header
-
-### **Filters component**
-
-- **Render form and prevent event default**: const Filters
-
-### **FilterByName component**
-
-- **Event listener**: const handleFilter
-- **Render filter**: const FilterByName
-
-### **FilterBySpecies component**
-
-- **Event listener**: const handleFilter
-- **Render filter**: const FilterBySpecies
-
-### **FilterByStatus component**
-
-- **Event listener**: const handleFilter
-- **Render filter**: const FilterByStatus
-
-### **FilterByGender component**
-
-- **Event listener**: const handleFilter
-- **Render filter**: const FilterByGender
-
-### **CharacterList component**
-
-- **Render alphabetically ordered character list:** const CharacterList, const sortCharacterList
-- **Render individual character card component:** const characterItems
-- **Render search error message:** const searchResults
-
-### **CharacterCard component**
-
-- **Render individual character card data:** const CharacterCard
-
-### **CharacterDetail component**
-
-- **Render detailed character card data:** const CharacterDetail
-- **Render species icon on detailed character card data:** const renderIconSpecies
-- **Render status icon on detailed character card data:** const renderIconStatus
-
-### **Footer component**
-
-- **Render footer:** const Footer
-
 ## **License**
 
-This project is licensed under [**MIT License**](https://spdx.org/licenses/MIT.html).
+This project is licensed under ![GitHub](https://img.shields.io/github/license/anaguerraabaroa/random-number?label=License&logo=MIT&style=for-the-badge)
