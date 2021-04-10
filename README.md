@@ -33,7 +33,7 @@ npm start
 
 - **[Project URL](https://anaguerraabaroa.github.io/rick-and-morty-character-search/#/)** is also available on GitHub Pages.
 
-## **Project features**
+## **Features**
 
 - React app
 - Get characters from **[API](https://rickandmortyapi.com/api/character)**
